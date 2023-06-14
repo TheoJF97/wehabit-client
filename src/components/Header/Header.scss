@@ -1,0 +1,9 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

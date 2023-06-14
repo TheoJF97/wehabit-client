@@ -1,0 +1,47 @@
+/*
+COLOR VARIABLES
+*/
+//Primary
+$wehabit-black: #111111; //global text
+$wehabit-green: #c5f0a4; //WeHabit logo background label
+$indigo: #2e66e5; //interactive elements
+$white: #ffffff; //gloabl white
+
+//Secondary
+$slate: #5c667e; //table column headers & placeholder text
+$cloud: #bdc5d5; //outlines, dividers, borders, table sorting icon
+
+//Background
+$graphite: #232940; //top nav header bg, CTA button hover state bg
+$light-grey: #f7f8f9; //page bg, table col header bg, CTA bg
+
+//Supporting
+$red: #c94515; //"Out of stock" label, error states & delete icon
+
+// Potential Colors
+// Muted Blue:
+// Lighter Shade: #B5D2DD
+// Darker Shade: #537B8B
+
+// Muted Green:
+// Lighter Shade: #C6DEC8
+// Darker Shade: #547A57
+
+// Muted Grayish-Green:
+// Lighter Shade: #C1C6BB
+// Darker Shade: #4F5550
+
+// Muted Bluish-Gray:
+// Lighter Shade: #AEBBC1
+// Darker Shade: #47555B
+
+// Muted Greenish-Blue:
+// Lighter Shade: #9BB1AC
+// Darker Shade: #3B514C
+
+/*
+BREAKPOINT VARIABLES
+*/
+$mobile-breakpoint: 320px; //320px - 767px
+$tablet-breakpoint: 768px; //768px - 1279px
+$desktop-breakpoint: 1280px; //1280px+
