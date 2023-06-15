@@ -6,4 +6,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: $wehabit-green;
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+  }
 }

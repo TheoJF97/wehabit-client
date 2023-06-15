@@ -1,6 +1,8 @@
-import { BrowserRouter as Router, Routes, Routes } from "react-router-dom";
-import "./App.scss";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+
+// import SASS
+import "./App.scss";
 
 export default function App() {
   return (
