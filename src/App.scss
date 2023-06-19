@@ -1,5 +1,6 @@
 //Link Components' SASS Styling
 @use "./components/Header/Header.scss" as *;
+@use "./components/MyHabits/MyHabits.scss" as *;
 
 // Link Partials SASS Styling
 @use "./styles/partials/fonts" as *;
@@ -8,5 +9,4 @@
 
 .App {
   font-family: "Avenir Next";
-  background-color: $wehabit-green;
 }

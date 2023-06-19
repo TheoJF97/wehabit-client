@@ -18,3 +18,8 @@
     @content;
   }
 }
+
+@mixin desktop-width {
+  margin: 0 auto;
+  width: 1020px;
+}

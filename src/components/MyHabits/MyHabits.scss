@@ -1,0 +1,81 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.myhabits {
+  background-color: $wehabit-green;
+
+  @include desktop {
+    @include desktop-width;
+  }
+
+  &__title {
+    margin: 0;
+    padding: 32px 0px 24px 16px;
+  }
+
+  &__check {
+    width: 5%;
+
+    &-container {
+    }
+  }
+}
+
+.wrapper {
+  //   border: 1px solid #000;
+  height: 200px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  //   Not needed:
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  border: 1px solid #000;
+}
+
+input[type="checkbox"] {
+  //   appearance: none;
+  //   -webkit-appearance: none;
+  height: 80px;
+  width: 80px;
+  background-color: #d5d5d5;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label {
+  color: #4c4c4c;
+  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  font-size: 50px;
+  color: $white;
+  display: none;
+}
+
+input[type="checkbox"]:hover {
+  background-color: #a5a5a5;
+}
+input[type="checkbox"]:checked {
+  background-color: #5bcd3e;
+}
+input[type="checkbox"]:checked:after {
+  display: block;
+  outline: none;
+}
