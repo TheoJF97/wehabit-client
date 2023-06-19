@@ -4,12 +4,51 @@
 
 .header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
   background-color: $wehabit-green;
+  text-align: center;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    margin: 0 auto;
+    width: 1020px;
+  }
+
+  &__home {
+    @include tablet {
+      padding-left: 32px;
+    }
+  }
+
+  &__logo {
+    width: 50%;
+    border-radius: 50%;
+  }
 
   &__navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+
+    @include tablet {
+      align-items: center;
+      padding-right: 32px;
+    }
+  }
+
+  &__link {
+    @include tablet {
+      padding-right: 16px;
+    }
+  }
+
+  &__link,
+  &__home {
+    text-decoration: none;
+    color: $wehabit-black;
+    font-weight: 700;
   }
 }
