@@ -1,5 +1,8 @@
+// import tools
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
+
+// import Pages
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 // import SASS
 import "./App.scss";
@@ -9,7 +12,8 @@ export default function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/:id" element={<HomePage />} />
+          <Route path="/" element={<ProfilePage />} />
+          <Route path="/:id" element={<ProfilePage />} />
         </Routes>
       </Router>
     </div>

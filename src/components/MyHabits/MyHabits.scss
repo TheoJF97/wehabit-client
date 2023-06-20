@@ -41,6 +41,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding: 16px 0;
+    overflow: scroll;
 
     &--empty {
       visibility: hidden;
