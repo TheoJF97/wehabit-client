@@ -1,4 +1,9 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 export default function MyHabits() {
+  //Function to getCurrentWeekDates that outputs an array of obejcts where each object is a day
   function getCurrentWeekDates() {
     const today = new Date();
     const currentDay = today.getDay(); // Get the current day of the week (0-6, where 0 is Sunday)
@@ -16,6 +21,31 @@ export default function MyHabits() {
   }
 
   const weekDates = getCurrentWeekDates();
+
+  //State variables
+  const [habits, setHabits] = useState([]);
+
+  //Import server url from .env
+  const { REACT_APP_SERVER_URL: serverUrl } = process.env;
+
+  console.log(serverUrl);
+  console.log(process.env);
+
+  // set id
+  let { id } = useParams();
+  console.log(id);
+  //Axios calls to get a user's HABITs
+  useEffect(() => {
+    axios
+      .get(`${serverUrl}/users/${id}`)
+      .then((response) => {
+        setHabits(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <>
