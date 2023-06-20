@@ -11,3 +11,45 @@
   font-family: "Avenir Next";
   background-color: $wehabit-green;
 }
+
+h1 {
+  font-size: 24px;
+  line-height: 36px;
+
+  @include tablet {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+h2 {
+  font-size: 13px;
+
+  @include tablet {
+    font-size: 20px;
+  }
+}
+
+h3 {
+  font-size: 15px;
+
+  @include tablet {
+    font-size: 17px;
+  }
+}
+
+p {
+  font-size: 15px;
+
+  @include tablet {
+    font-size: 16px;
+  }
+}
+
+span {
+  font-size: 13px;
+
+  @include tablet {
+    font-size: 15px;
+  }
+}

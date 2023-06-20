@@ -30,21 +30,8 @@ export default function MyHabits() {
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  // set id
+  // Grab id
   let { id } = useParams();
-
-  //Axios call to get a user's HABITs
-  useEffect(() => {
-    axios
-      .get(`${serverUrl}/users/${id}/habits`)
-      .then((response) => {
-        setHabits(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setHasError(true);
-      });
-  }, []);
 
   //Axios call to get a user's name
   useEffect(() => {
@@ -52,6 +39,19 @@ export default function MyHabits() {
       .get(`${serverUrl}/users/${id}`)
       .then((response) => {
         setUserName(response.data[0].name);
+      })
+      .catch((error) => {
+        console.log(error);
+        setHasError(true);
+      });
+  }, []);
+  
+  //Axios call to get a user's habits
+  useEffect(() => {
+    axios
+      .get(`${serverUrl}/users/${id}/habits`)
+      .then((response) => {
+        setHabits(response.data);
       })
       .catch((error) => {
         console.log(error);

@@ -4,7 +4,11 @@
 
 .myhabits {
   background-color: $wehabit-green;
-  padding: 0px 16px 0px 16px;
+  padding: 0px 16px 16px 16px;
+
+  @include tablet {
+    padding: 0px 24px 24px 24px;
+  }
 
   @include desktop {
     @include desktop-width;
@@ -36,13 +40,16 @@
 
   &__title {
     width: 17%;
-    font-size: 12px;
     margin: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 16px 0;
     overflow: scroll;
+
+    @include tablet {
+      justify-content: center;
+    }
 
     &--empty {
       visibility: hidden;
@@ -55,7 +62,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 13px;
   }
 
   &__habit {
