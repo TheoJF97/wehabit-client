@@ -28,19 +28,15 @@ export default function MyHabits() {
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  console.log(serverUrl);
-  console.log(process.env);
-
   // set id
   let { id } = useParams();
-  console.log(id);
+
   //Axios calls to get a user's HABITs
   useEffect(() => {
     axios
       .get(`${serverUrl}/users/${id}`)
       .then((response) => {
         setHabits(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -50,7 +46,7 @@ export default function MyHabits() {
   return (
     <>
       <section className="myhabits">
-        <h1 className="myhabits__header">MyHabits - [username]</h1>
+        <h1 className="myhabits__header">MyHabits😂 - [username]</h1>
         <div className="myhabits__container">
           <div className="myhabits__dates">
             <h2 className="myhabits__title myhabits__title--empty">[habit1]</h2>
@@ -65,38 +61,18 @@ export default function MyHabits() {
             ))}
           </div>
 
-          <div className="myhabits__habit">
-            <h2 className="myhabits__title">[habit1]</h2>
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-          </div>
-
-          <div className="myhabits__habit">
-            <h2 className="myhabits__title">[habit1]</h2>
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-          </div>
-
-          <div className="myhabits__habit">
-            <h2 className="myhabits__title">[habit1]</h2>
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-            <input type="checkbox" id="check" className="myhabits__check" />
-          </div>
+          {habits.map((habit) => (
+            <div className="myhabits__habit">
+              <h2 className="myhabits__title">{habit.title}</h2>
+              <input type="checkbox" id="check" className="myhabits__check" />
+              <input type="checkbox" id="check" className="myhabits__check" />
+              <input type="checkbox" id="check" className="myhabits__check" />
+              <input type="checkbox" id="check" className="myhabits__check" />
+              <input type="checkbox" id="check" className="myhabits__check" />
+              <input type="checkbox" id="check" className="myhabits__check" />
+              <input type="checkbox" id="check" className="myhabits__check" />
+            </div>
+          ))}
         </div>
       </section>
     </>
