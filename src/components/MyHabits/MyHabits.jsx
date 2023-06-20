@@ -24,7 +24,8 @@ export default function MyHabits() {
 
   //State variables
   const [habits, setHabits] = useState([]);
-  const [user, setUser] = useState([]);
+  const [userName, setUserName] = useState([]);
+  const [hasError, setHasError] = useState(false);
 
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
@@ -41,6 +42,7 @@ export default function MyHabits() {
       })
       .catch((error) => {
         console.log(error);
+        setHasError(true);
       });
   }, []);
 
@@ -49,22 +51,29 @@ export default function MyHabits() {
     axios
       .get(`${serverUrl}/users/${id}`)
       .then((response) => {
-        setUser(response.data);
+        setUserName(response.data[0].name);
       })
       .catch((error) => {
         console.log(error);
+        setHasError(true);
       });
   }, []);
 
-  console.log(user[0].name);
+  if (!habits) {
+    return <span>Loading.....</span>;
+  }
+  if (hasError) {
+    return <h1>Information not found</h1>;
+  }
 
   return (
     <>
       <section className="myhabits">
-        <h1 className="myhabits__header">MyHabits - {user[0].name}</h1>
+        <h1 className="myhabits__header">MyHabits - {userName}</h1>
         <div className="myhabits__container">
           <div className="myhabits__dates">
-            <h2 className="myhabits__title myhabits__title--empty">[habit1]</h2>
+            <h2 className="myhabits__title myhabits__title--empty"></h2>
+
             {weekDates.map((date, index) => (
               <span key={index} className="myhabits__date">
                 {date.toLocaleDateString(undefined, {
@@ -77,10 +86,8 @@ export default function MyHabits() {
           </div>
 
           {habits.map((habit, index) => (
-            <div className="myhabits__habit">
-              <h2 key={index} className="myhabits__title">
-                {habit.title}
-              </h2>
+            <div key={index} className="myhabits__habit">
+              <h2 className="myhabits__title">{habit.title}</h2>
               <input type="checkbox" id="check" className="myhabits__check" />
               <input type="checkbox" id="check" className="myhabits__check" />
               <input type="checkbox" id="check" className="myhabits__check" />
