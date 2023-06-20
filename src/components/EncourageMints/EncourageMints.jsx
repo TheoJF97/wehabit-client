@@ -29,6 +29,9 @@ export default function EncourageMints() {
   if (!encourageMints) {
     return <span>Loading.....</span>;
   }
+
+  console.log(typeof encourageMints);
+
   if (hasError) {
     return <h1>Information not found</h1>;
   }
@@ -38,14 +41,12 @@ export default function EncourageMints() {
       <section className="encouragemints">
         <h1 className="encouragemints__header">EncourageMints</h1>
         <div className="encouragemints__container">
-
           {encourageMints.map((encourageMint, index) => (
             <div key={index} className="encouragemints__encourageMint">
               <h2 className="encouragemints__author">[Author Name]</h2>
               <p className="encouragemints__title">{encourageMint.content}</p>
             </div>
           ))}
-          
         </div>
       </section>
     </>
