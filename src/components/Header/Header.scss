@@ -7,6 +7,9 @@
   flex-direction: column;
   background-color: $wehabit-green;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
 
   @include tablet {
     flex-direction: row;
@@ -14,26 +17,31 @@
   }
 
   @include desktop {
-    margin: 0 auto;
-    width: 1020px;
+    @include desktop-width;
   }
 
   &__home {
+    width: 200px;
+
     @include tablet {
+      display: flex;
+      justify-content: flex-start;
       padding-left: 32px;
     }
   }
 
   &__logo {
-    width: 50%;
+    width: 100%;
     border-radius: 50%;
   }
 
   &__navigation {
     display: flex;
     justify-content: space-around;
+    width: 100%;
 
     @include tablet {
+      width: 40%;
       align-items: center;
       padding-right: 32px;
     }

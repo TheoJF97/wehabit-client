@@ -25,6 +25,28 @@ export default function MyHabits() {
             <input type="checkbox" id="check" className="myhabits__check" />
             <input type="checkbox" id="check" className="myhabits__check" />
           </div>
+
+          <div className="myhabits__habit">
+            <h2 className="myhabits__title">[habit1]</h2>
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+          </div>
+
+          <div className="myhabits__habit">
+            <h2 className="myhabits__title">[habit1]</h2>
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+            <input type="checkbox" id="check" className="myhabits__check" />
+          </div>
         </div>
       </section>
     </>
