@@ -24,6 +24,7 @@ export default function MyHabits() {
 
   //State variables
   const [habits, setHabits] = useState([]);
+  const [user, setUser] = useState([]);
 
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
@@ -31,10 +32,10 @@ export default function MyHabits() {
   // set id
   let { id } = useParams();
 
-  //Axios calls to get a user's HABITs
+  //Axios call to get a user's HABITs
   useEffect(() => {
     axios
-      .get(`${serverUrl}/users/${id}`)
+      .get(`${serverUrl}/users/${id}/habits`)
       .then((response) => {
         setHabits(response.data);
       })
@@ -43,10 +44,24 @@ export default function MyHabits() {
       });
   }, []);
 
+  //Axios call to get a user's name
+  useEffect(() => {
+    axios
+      .get(`${serverUrl}/users/${id}`)
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  console.log(user[0].name);
+
   return (
     <>
       <section className="myhabits">
-        <h1 className="myhabits__header">MyHabits😂 - [username]</h1>
+        <h1 className="myhabits__header">MyHabits - {user[0].name}</h1>
         <div className="myhabits__container">
           <div className="myhabits__dates">
             <h2 className="myhabits__title myhabits__title--empty">[habit1]</h2>
@@ -61,9 +76,11 @@ export default function MyHabits() {
             ))}
           </div>
 
-          {habits.map((habit) => (
+          {habits.map((habit, index) => (
             <div className="myhabits__habit">
-              <h2 className="myhabits__title">{habit.title}</h2>
+              <h2 key={index} className="myhabits__title">
+                {habit.title}
+              </h2>
               <input type="checkbox" id="check" className="myhabits__check" />
               <input type="checkbox" id="check" className="myhabits__check" />
               <input type="checkbox" id="check" className="myhabits__check" />
