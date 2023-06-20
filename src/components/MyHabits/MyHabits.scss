@@ -22,6 +22,8 @@
     width: 100%;
     border: 1px solid #000;
     background-color: $white;
+    padding: 1rem;
+    box-sizing: border-box;
   }
 
   &__dates {
@@ -32,12 +34,16 @@
   }
 
   &__title {
-    width: 25%;
-    font-size: 16px;
-    margin: 16px 0;
+    width: 15%;
+    font-size: 12px;
+    margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+
+    &--empty {
+      visibility: hidden;
+    }
   }
 
   &__date {
@@ -53,14 +59,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
     width: 100%;
+    margin: 16px 0;
   }
 
   &__check {
-    // width: 25px;
-    min-width: 5%;
-    max-width: 8%;
+    width: 10%;
     margin: 0;
     border-radius: 5px;
     accent-color: $wehabit-green;
