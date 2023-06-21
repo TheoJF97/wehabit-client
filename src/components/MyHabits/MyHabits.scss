@@ -26,12 +26,7 @@
   }
 
   &__add-habit {
-    width: 150px;
-    height: 40px;
-    margin: 16px 0px 16px 0px;
-    border-radius: 5px;
-    background-color: $wehabit-dark-green;
-    color: white;
+    @include button;
   }
 
   &__container {
