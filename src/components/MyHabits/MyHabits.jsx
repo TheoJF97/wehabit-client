@@ -11,16 +11,32 @@ export default function MyHabits() {
     firstDayOfWeek.setDate(today.getDate() - currentDay); // Subtract the current day to get the first day of the week
 
     const weekDates = [];
+    const weekdays = ["Su", "M", "T", "W", "Th", "F", "Sa"]; // Array of short form initials for weekdays
+
     for (let i = 0; i < 7; i++) {
       const date = new Date(firstDayOfWeek);
       date.setDate(firstDayOfWeek.getDate() + i); // Add the loop index to get each day of the week
-      weekDates.push(date);
+      const day = weekdays[i]; // Get the short form initial for the weekday
+      const formattedDate = `${date.getDate()} ${day}`; // Format the date as "date weekdayInitial"
+      weekDates.push(formattedDate);
     }
 
     return weekDates;
   }
 
   const weekDates = getCurrentWeekDates();
+  console.log(weekDates);
+
+  // function to get current month + year
+  function getCurrentMonthYear() {
+    const today = new Date();
+    const month = today.toLocaleString("default", { month: "long" }); // Get the current month as a string
+    const year = today.getFullYear(); // Get the current year
+
+    return `${month} ${year}`; // Return the current month and year as a formatted string
+  }
+
+  const currentMonthYear = getCurrentMonthYear();
 
   //State variables
   const [habits, setHabits] = useState([]);
@@ -45,7 +61,7 @@ export default function MyHabits() {
         setHasError(true);
       });
   }, []);
-  
+
   //Axios call to get a user's habits
   useEffect(() => {
     axios
@@ -72,15 +88,13 @@ export default function MyHabits() {
         <h1 className="myhabits__header">MyHabits - {userName}</h1>
         <div className="myhabits__container">
           <div className="myhabits__dates">
-            <h2 className="myhabits__title myhabits__title--empty"></h2>
+            <h2 className="myhabits__title myhabits__title-date">
+              {currentMonthYear}
+            </h2>
 
             {weekDates.map((date, index) => (
               <span key={index} className="myhabits__date">
-                {date.toLocaleDateString(undefined, {
-                  weekday: "short",
-                  month: "short",
-                  day: "numeric",
-                })}
+                {date}
               </span>
             ))}
           </div>
