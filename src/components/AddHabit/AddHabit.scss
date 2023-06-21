@@ -2,9 +2,11 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.myhabits {
+.addhabit {
   background-color: $wehabit-green;
   padding: 0px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
 
   @include tablet {
     padding: 0px 24px 24px 24px;
@@ -15,14 +17,15 @@
   }
 
   &__header {
+    margin: 0;
+    padding: 32px 0px 0px 0px;
+    text-align: center;
+  }
+
+  &__inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  &__username {
-    margin: 0;
-    padding: 32px 0px 0px 0px;
   }
 
   &__add-habit {
@@ -32,6 +35,10 @@
     border-radius: 5px;
     background-color: $wehabit-dark-green;
     color: white;
+  }
+
+  &__submit {
+    @include button;
   }
 
   &__container {

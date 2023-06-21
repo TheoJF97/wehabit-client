@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function MyHabits() {
   //Function to getCurrentWeekDates that outputs an array of obejcts where each object is a day
@@ -85,7 +85,11 @@ export default function MyHabits() {
   return (
     <>
       <section className="myhabits">
-        <h1 className="myhabits__header">MyHabits - {userName}</h1>
+        <div className="myhabits__header">
+          <h1 className="myhabits__username">MyHabits - {userName}</h1>
+          <Link to="/addhabit"></Link>
+          <button className="myhabits__add-habit">+ AddHabit</button>
+        </div>
         <div className="myhabits__container">
           <div className="myhabits__dates">
             <h2 className="myhabits__title myhabits__title-date">
