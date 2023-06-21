@@ -87,8 +87,9 @@ export default function MyHabits() {
       <section className="myhabits">
         <div className="myhabits__header">
           <h1 className="myhabits__username">MyHabits - {userName}</h1>
-          <Link to="/addhabit"></Link>
-          <button className="myhabits__add-habit">+ AddHabit</button>
+          <Link to="/addhabit">
+            <button className="myhabits__add-habit">+ AddHabit</button>
+          </Link>
         </div>
         <div className="myhabits__container">
           <div className="myhabits__dates">
