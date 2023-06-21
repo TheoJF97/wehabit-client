@@ -25,9 +25,17 @@
     width: 100%;
     border: 1px solid #000;
     background-color: $white;
-    padding: 1rem;
+    padding: 0px 16px 16px 16px;
     box-sizing: border-box;
     border-radius: 5px;
+    box-shadow: 10px 5px 5px $wehabit-dark-green;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 24px 24px 24px 24px;
+    }
   }
 
   &__encouragemint {
@@ -35,7 +43,22 @@
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    border-bottom: 1px solid #000;
+
+    @include tablet {
+      width: 45%;
+      border-radius: 5px;
+      padding-right: 24px;
+    }
+  }
+
+  &__author {
+    margin: 0;
+    font-size: 15px;
+    padding: 16px 0;
+
+    @include tablet {
+      font-size: 20px;
+    }
   }
 
   &__title {
@@ -44,6 +67,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 16px 0;
+    padding: 0px 0px 16px 0px;
   }
 }

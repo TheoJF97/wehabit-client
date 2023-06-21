@@ -5,8 +5,6 @@ import { useParams } from "react-router-dom";
 export default function EncourageMints() {
   //State variables
   const [encourageMints, setEncourageMints] = useState([]);
-  const [authorID, setAuthorID] = useState(null);
-  const [author, setAuthor] = useState("");
   const [hasError, setHasError] = useState(false);
 
   //Import server url from .env
@@ -21,8 +19,6 @@ export default function EncourageMints() {
       .get(`${serverUrl}/users/${id}/encouragemints`)
       .then((response) => {
         setEncourageMints(response.data);
-        console.log(response.data);
-        setAuthorID(response.data[0].author_id);
       })
       .catch((error) => {
         console.log(error);

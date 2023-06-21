@@ -26,9 +26,14 @@
     width: 100%;
     border: 1px solid #000;
     background-color: $white;
-    padding: 1rem;
+    padding: 16px 16px 16px 16px;
     box-sizing: border-box;
     border-radius: 5px;
+    box-shadow: 10px 5px 5px $wehabit-dark-green;
+    
+    @include tablet {
+      padding: 24px 24px 24px 24px;
+    }
   }
 
   &__dates {
