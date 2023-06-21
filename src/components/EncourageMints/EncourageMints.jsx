@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 export default function EncourageMints() {
   //State variables
   const [encourageMints, setEncourageMints] = useState([]);
+  const [authorID, setAuthorID] = useState(null);
+  const [author, setAuthor] = useState("");
   const [hasError, setHasError] = useState(false);
 
   //Import server url from .env
@@ -19,6 +21,8 @@ export default function EncourageMints() {
       .get(`${serverUrl}/users/${id}/encouragemints`)
       .then((response) => {
         setEncourageMints(response.data);
+        console.log(response.data);
+        setAuthorID(response.data[0].author_id);
       })
       .catch((error) => {
         console.log(error);
@@ -30,8 +34,6 @@ export default function EncourageMints() {
     return <span>Loading.....</span>;
   }
 
-  console.log(typeof encourageMints);
-
   if (hasError) {
     return <h1>Information not found</h1>;
   }
@@ -39,11 +41,13 @@ export default function EncourageMints() {
   return (
     <>
       <section className="encouragemints">
-        <h1 className="encouragemints__header">EncourageMints</h1>
+        <h1 className="encouragemints__header">EncourageMints 🍬</h1>
         <div className="encouragemints__container">
           {encourageMints.map((encourageMint, index) => (
-            <div key={index} className="encouragemints__encourageMint">
-              <h2 className="encouragemints__author">[Author Name]</h2>
+            <div key={index} className="encouragemints__encouragemint">
+              <h2 className="encouragemints__author">
+                {encourageMint.author_name}
+              </h2>
               <p className="encouragemints__title">{encourageMint.content}</p>
             </div>
           ))}

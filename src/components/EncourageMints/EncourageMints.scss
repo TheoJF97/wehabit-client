@@ -22,7 +22,6 @@
   &__container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: 100%;
     border: 1px solid #000;
     background-color: $white;
@@ -31,17 +30,20 @@
     border-radius: 5px;
   }
 
+  &__encouragemint {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    border-bottom: 1px solid #000;
+  }
+
   &__title {
-    width: 17%;
+    width: 100%;
     margin: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 16px 0;
-    overflow: scroll;
-
-    @include tablet {
-      justify-content: center;
-    }
   }
 }
