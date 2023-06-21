@@ -2,7 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-export default function MyHabits() {
+export default function MyHabits({ user }) {
+  //Deconstruct prop user (id, name, email) for name:
+  const { name } = user;
+
   //Function to getCurrentWeekDates that outputs an array of obejcts where each object is a day
   function getCurrentWeekDates() {
     const today = new Date();
@@ -25,7 +28,6 @@ export default function MyHabits() {
   }
 
   const weekDates = getCurrentWeekDates();
-  console.log(weekDates);
 
   // function to get current month + year
   function getCurrentMonthYear() {
@@ -40,7 +42,6 @@ export default function MyHabits() {
 
   //State variables
   const [habits, setHabits] = useState([]);
-  const [userName, setUserName] = useState([]);
   const [hasError, setHasError] = useState(false);
 
   //Import server url from .env
@@ -49,18 +50,8 @@ export default function MyHabits() {
   // Grab id
   let { id } = useParams();
 
-  //Axios call to get a user's name
-  useEffect(() => {
-    axios
-      .get(`${serverUrl}/users/${id}`)
-      .then((response) => {
-        setUserName(response.data[0].name);
-      })
-      .catch((error) => {
-        console.log(error);
-        setHasError(true);
-      });
-  }, []);
+  //
+  const handleOnChange = (event) => {};
 
   //Axios call to get a user's habits
   useEffect(() => {
@@ -78,6 +69,7 @@ export default function MyHabits() {
   if (!habits) {
     return <span>Loading.....</span>;
   }
+
   if (hasError) {
     return <h1>Information not found</h1>;
   }
@@ -86,7 +78,7 @@ export default function MyHabits() {
     <>
       <section className="myhabits">
         <div className="myhabits__header">
-          <h1 className="myhabits__username">MyHabits - {userName}</h1>
+          <h1 className="myhabits__username">MyHabits - {name}</h1>
           <Link to="/addhabit">
             <button className="myhabits__add-habit">+ AddHabit</button>
           </Link>
@@ -107,7 +99,12 @@ export default function MyHabits() {
           {habits.map((habit, index) => (
             <div key={index} className="myhabits__habit">
               <h2 className="myhabits__title">{habit.title}</h2>
-              <input type="checkbox" id="check" className="myhabits__check" />
+              <input
+                type="checkbox"
+                id="check"
+                className="myhabits__check"
+                onChange={handleOnChange}
+              />
               <input type="checkbox" id="check" className="myhabits__check" />
               <input type="checkbox" id="check" className="myhabits__check" />
               <input type="checkbox" id="check" className="myhabits__check" />
