@@ -5,12 +5,10 @@ export default function Habit({ habit }) {
   //State variables
   const [completions, setCompletions] = useState([]);
   const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   //Deconstruct prop: habit (id, title, user_id):
   const { id, title } = habit;
-
-  //Deconstruct state variable: completions (id, habit_id, date, completed)
-  // const { habit_id, date, completed } = completions;
 
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
@@ -21,6 +19,7 @@ export default function Habit({ habit }) {
       .get(`${serverUrl}/habits/${id}/completions`)
       .then((response) => {
         setCompletions(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -28,7 +27,7 @@ export default function Habit({ habit }) {
       });
   }, [id, serverUrl]);
 
-  if (completions.length === 0) {
+  if (isLoading) {
     return <span>Loading.....</span>;
   }
 

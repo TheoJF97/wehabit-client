@@ -2,41 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Habit from "../Habit/Habit";
+import { getCurrentMonthYear, getCurrentWeekDates } from "../../utils/utils";
 
 export default function MyHabits({ user }) {
   //Deconstruct prop user (id, name, email) for name:
   const { name } = user;
 
-  //Function to getCurrentWeekDates that outputs an array of obejcts where each object is a day
-  function getCurrentWeekDates() {
-    const today = new Date();
-    const currentDay = today.getDay(); // Get the current day of the week (0-6, where 0 is Sunday)
-    const firstDayOfWeek = new Date(today); // Create a new date object with the current date
-    firstDayOfWeek.setDate(today.getDate() - currentDay); // Subtract the current day to get the first day of the week
-
-    const weekDates = [];
-    const weekdays = ["Su", "M", "T", "W", "Th", "F", "Sa"]; // Array of short form initials for weekdays
-
-    for (let i = 0; i < 7; i++) {
-      const date = new Date(firstDayOfWeek);
-      date.setDate(firstDayOfWeek.getDate() + i); // Add the loop index to get each day of the week
-      const day = weekdays[i]; // Get the short form initial for the weekday
-      const formattedDate = `${date.getDate()} ${day}`; // Format the date as "date weekdayInitial"
-      weekDates.push(formattedDate);
-    }
-
-    return weekDates;
-  }
   const weekDates = getCurrentWeekDates();
-
-  // function to get current month + year
-  function getCurrentMonthYear() {
-    const today = new Date();
-    const month = today.toLocaleString("default", { month: "long" }); // Get the current month as a string
-    const year = today.getFullYear(); // Get the current year
-
-    return `${month} ${year}`; // Return the current month and year as a formatted string
-  }
   const currentMonthYear = getCurrentMonthYear();
 
   //State variables
