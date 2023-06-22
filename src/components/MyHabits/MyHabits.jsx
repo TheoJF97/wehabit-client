@@ -2,15 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Habit from "../Habit/Habit";
-import { getCurrentMonthYear, getCurrentDates } from "../../utils/utils";
+import { currentMonthYear, startDate, endDate, dates } from "../../utils/utils";
 
 export default function MyHabits({ user }) {
   //Deconstruct prop user (id, name, email) for name:
   const { name } = user;
-
-  //import date functions
-  const dates = getCurrentDates();
-  const currentMonthYear = getCurrentMonthYear();
 
   //State variables
   const [habits, setHabits] = useState([]);
