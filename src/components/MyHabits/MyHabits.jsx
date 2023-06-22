@@ -27,7 +27,6 @@ export default function MyHabits({ user }) {
 
     return weekDates;
   }
-
   const weekDates = getCurrentWeekDates();
 
   // function to get current month + year
@@ -38,7 +37,6 @@ export default function MyHabits({ user }) {
 
     return `${month} ${year}`; // Return the current month and year as a formatted string
   }
-
   const currentMonthYear = getCurrentMonthYear();
 
   //State variables

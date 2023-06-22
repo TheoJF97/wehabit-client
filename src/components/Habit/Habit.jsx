@@ -3,12 +3,16 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 export default function Habit({ habit }) {
-  //Deconstruct prop habit (id, name, email) for name:
-  const { title, id } = habit;
-
   //State variables
   const [completions, setCompletions] = useState([]);
   const [hasError, setHasError] = useState(false);
+  const [completion, setCompletion] = useState(true);
+
+  //Deconstruct prop: habit (id, title, user_id):
+  const { id, title } = habit;
+
+  //Deconstruct state variable: completions (id, habit_id, date, completed)
+  const { habit_id, date, completed } = completions;
 
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
@@ -19,6 +23,9 @@ export default function Habit({ habit }) {
       .get(`${serverUrl}/habits/${id}/completions`)
       .then((response) => {
         setCompletions(response.data);
+
+        // outputs an array of objects completions for habit_id 1-3 for dates: 6/18-6/24
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -26,11 +33,11 @@ export default function Habit({ habit }) {
       });
   }, []);
 
-  if (!completions) {
+  if (completions.length === 0) {
     return <span>Loading.....</span>;
   }
 
-  console.log(`${id} ${completions}`);
+  console.log(completions);
 
   if (hasError) {
     return <h1>Information not found</h1>;
@@ -40,18 +47,21 @@ export default function Habit({ habit }) {
     <>
       <div key={id} className="habit__habit">
         <h2 className="habit__title">{title}</h2>
-        <input
-          type="checkbox"
-          id="check"
-          className="habit__check"
-          onChange={(e) => setCompletions(e.target.value)}
-        />
-        <input type="checkbox" id="check" className="habit__check" />
-        <input type="checkbox" id="check" className="habit__check" />
-        <input type="checkbox" id="check" className="habit__check" />
-        <input type="checkbox" id="check" className="habit__check" />
-        <input type="checkbox" id="check" className="habit__check" />
-        <input type="checkbox" id="check" className="habit__check" />
+        {completions.map((completion, index) => {
+          return (
+            <input
+              key={index}
+              type="checkbox"
+              checked={completion.completed === 1}
+              className="habit__check"
+              onChange={(e) => {
+                const updatedCompletions = [...completions];
+                updatedCompletions[index].completed = e.target.checked ? 1 : 0;
+                setCompletions(updatedCompletions);
+              }}
+            />
+          );
+        })}
       </div>
     </>
   );
