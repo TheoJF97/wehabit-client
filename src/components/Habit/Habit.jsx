@@ -17,10 +17,10 @@ export default function Habit({ habit }) {
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  //Axios call to get a user's habits
+  //Axios call to get a user's habits completions for a date range
   useEffect(() => {
     axios
-      .get(`${serverUrl}/habits/${id}/completions`)
+      .get(`${serverUrl}/completions/${id}/${startDate}/${endDate}`)
       .then((response) => {
         setCompletions(response.data);
         console.log(response.data);
@@ -56,9 +56,9 @@ export default function Habit({ habit }) {
                 updatedCompletions[index].completed = e.target.checked ? 1 : 0;
                 setCompletions(updatedCompletions);
 
-                //Axios call to put a completion
+                //Axios call to post a completion
                 axios
-                  .put(`${serverUrl}/completions/${completion.id}`)
+                  .post(`${serverUrl}/completions`)
                   .then(() => {
                     console.log("success");
                   })
