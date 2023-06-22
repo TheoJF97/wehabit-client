@@ -51,6 +51,17 @@ export default function Habit({ habit }) {
                 const updatedCompletions = [...completions];
                 updatedCompletions[index].completed = e.target.checked ? 1 : 0;
                 setCompletions(updatedCompletions);
+
+                //Axios call to put a completion
+                axios
+                  .put(`${serverUrl}/completions/${completion.id}`)
+                  .then(() => {
+                    console.log("success");
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                    setHasError(true);
+                  });
               }}
             />
           );
