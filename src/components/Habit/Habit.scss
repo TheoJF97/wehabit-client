@@ -1,0 +1,45 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.habit {
+  &__habit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 16px 0;
+  }
+
+  &__title {
+    width: 17%;
+    margin: 0px 16px 0px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include tablet {
+      justify-content: center;
+    }
+
+    &-date {
+      color: $wehabit-dark-green;
+    }
+  }
+
+  &__check {
+    width: 10%;
+    height: 48px;
+    margin: 0;
+    border-radius: 5px;
+    accent-color: $wehabit-green;
+    cursor: pointer;
+
+    @include tablet {
+      width: 69px;
+      height: 56px;
+    }
+  }
+}

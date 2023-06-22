@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Habit from "../Habit/Habit";
 
 export default function MyHabits({ user }) {
   //Deconstruct prop user (id, name, email) for name:
@@ -50,9 +51,6 @@ export default function MyHabits({ user }) {
   // Grab id
   let { id } = useParams();
 
-  //
-  const handleOnChange = (event) => {};
-
   //Axios call to get a user's habits
   useEffect(() => {
     axios
@@ -96,22 +94,8 @@ export default function MyHabits({ user }) {
             ))}
           </div>
 
-          {habits.map((habit, index) => (
-            <div key={index} className="myhabits__habit">
-              <h2 className="myhabits__title">{habit.title}</h2>
-              <input
-                type="checkbox"
-                id="check"
-                className="myhabits__check"
-                onChange={handleOnChange}
-              />
-              <input type="checkbox" id="check" className="myhabits__check" />
-              <input type="checkbox" id="check" className="myhabits__check" />
-              <input type="checkbox" id="check" className="myhabits__check" />
-              <input type="checkbox" id="check" className="myhabits__check" />
-              <input type="checkbox" id="check" className="myhabits__check" />
-              <input type="checkbox" id="check" className="myhabits__check" />
-            </div>
+          {habits.map((habit, habitId) => (
+            <Habit habit={habit} key={habitId} />
           ))}
         </div>
       </section>
