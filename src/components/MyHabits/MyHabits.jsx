@@ -2,13 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Habit from "../Habit/Habit";
-import { getCurrentMonthYear, getCurrentWeekDates } from "../../utils/utils";
+import { getCurrentMonthYear, getCurrentDates } from "../../utils/utils";
 
 export default function MyHabits({ user }) {
   //Deconstruct prop user (id, name, email) for name:
   const { name } = user;
 
-  const weekDates = getCurrentWeekDates();
+  //import date functions
+  const dates = getCurrentDates();
   const currentMonthYear = getCurrentMonthYear();
 
   //State variables
@@ -57,7 +58,7 @@ export default function MyHabits({ user }) {
               {currentMonthYear}
             </h2>
 
-            {weekDates.map((date, index) => (
+            {dates.map((date, index) => (
               <span key={index} className="myhabits__date">
                 {date}
               </span>

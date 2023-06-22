@@ -1,5 +1,9 @@
+//Import tools
 import axios from "axios";
 import { useEffect, useState } from "react";
+
+// Note: Dates is an array of strings representing range of dates
+import { startDate, endDate, dates } from "../../utils/utils";
 
 export default function Habit({ habit }) {
   //State variables
