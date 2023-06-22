@@ -27,7 +27,7 @@ export default function ProfilePage() {
         console.log(error);
         setHasError(true);
       });
-  }, []);
+  }, [id, serverUrl]);
 
   if (!user) {
     return <span>Loading.....</span>;

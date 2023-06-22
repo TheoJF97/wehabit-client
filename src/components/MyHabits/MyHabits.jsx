@@ -60,7 +60,7 @@ export default function MyHabits({ user }) {
         console.log(error);
         setHasError(true);
       });
-  }, []);
+  }, [id, serverUrl]);
 
   if (!habits) {
     return <span>Loading.....</span>;
