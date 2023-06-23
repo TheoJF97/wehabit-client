@@ -50,11 +50,6 @@ export default function Habit({ habit }) {
             (c) => moment(c.date).format("YYYY-MM-DD") === date
           );
 
-          console.log(completion);
-
-          // console.log(moment(completions[0].date).format("YYYY-MM-DD"));
-          // console.log(dates[0]);
-
           const isChecked = completion ? 1 : false;
 
           return (
@@ -79,8 +74,6 @@ export default function Habit({ habit }) {
 
                 setCompletions(updatedCompletions);
 
-                //Axios call to post a completion by habit id and date
-                // POST /habits/:habitId/completions/:date
                 axios
                   .post(`${serverUrl}/habits/${id}/completions/${date}`)
                   .then((response) => {
