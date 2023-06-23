@@ -2,8 +2,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// Note: Dates is an array of strings representing range of dates
-import { currentMonthYear, startDate, endDate, dates } from "../../utils/utils";
+// Note: dates is an array of strings representing range of dates from startDate to endDate
+import { startDate, endDate, dates } from "../../utils/utils";
+import moment from "moment";
 
 export default function Habit({ habit }) {
   //State variables
@@ -23,7 +24,6 @@ export default function Habit({ habit }) {
       .get(`${serverUrl}/completions/${id}/${startDate}/${endDate}`)
       .then((response) => {
         setCompletions(response.data);
-        console.log(response.data);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -44,23 +44,50 @@ export default function Habit({ habit }) {
     <>
       <div key={id} className="habit__habit">
         <h2 className="habit__title">{title}</h2>
-        {completions.map((completion, index) => {
+        {dates.map((date, index) => {
+          // c reresents a completion of completions
+          const completion = completions.find(
+            (c) => moment(c.date).format("YYYY-MM-DD") === date
+          );
+
+          console.log(completion);
+
+          // console.log(moment(completions[0].date).format("YYYY-MM-DD"));
+          // console.log(dates[0]);
+
+          const isChecked = completion ? 1 : false;
+
           return (
             <input
               key={index}
               type="checkbox"
-              checked={completion.completed === 1}
+              checked={isChecked}
               className="habit__check"
               onChange={(e) => {
                 const updatedCompletions = [...completions];
-                updatedCompletions[index].completed = e.target.checked ? 1 : 0;
+                const existingCompletion = updatedCompletions.find(
+                  (c) => c.date === date
+                );
+                if (existingCompletion) {
+                  existingCompletion.completed = e.target.checked ? 1 : 0;
+                } else {
+                  updatedCompletions.push({
+                    date,
+                    completed: e.target.checked ? 1 : 0,
+                  });
+                }
+
                 setCompletions(updatedCompletions);
 
-                //Axios call to post a completion
+                //Axios call to post a completion by habit id and date
+                // POST /habits/:habitId/completions/:date
                 axios
-                  .post(`${serverUrl}/completions`)
-                  .then(() => {
-                    console.log("success");
+                  .post(`${serverUrl}/habits/${id}/completions/${date}`)
+                  .then((response) => {
+                    console.log(
+                      `Completion posted for habit id:${id} on date:${date}`,
+                      response
+                    );
                   })
                   .catch((error) => {
                     console.log(error);

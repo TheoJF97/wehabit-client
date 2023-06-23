@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import ProfilePage from "../ProfilePage/ProfilePage";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
+  const navigate = useNavigate();
   // Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
   const signupUrl = `${serverUrl}/signup`;
@@ -50,6 +52,7 @@ export default function LandingPage() {
       .then((response) => {
         sessionStorage.authToken = response.data.token;
         setIsLoggedIn(true);
+        navigate("/")
       })
       .catch(() => {
         setIsLoginError(true);
