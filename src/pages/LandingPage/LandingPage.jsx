@@ -102,5 +102,5 @@ export default function LandingPage() {
   if (!isSignedUp) return renderSignUp();
   if (!isLoggedIn) return renderLogin();
 
-  return <>{isSignedUp ? renderLogin() : <ProfilePage />} </>;
+  return <ProfilePage />;
 }

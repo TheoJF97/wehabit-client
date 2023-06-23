@@ -1,0 +1,99 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.their-habits {
+  background-color: $wehabit-green;
+  padding: 0px 16px 16px 16px;
+
+  @include tablet {
+    padding: 0px 24px 24px 24px;
+  }
+
+  @include desktop {
+    @include desktop-width;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__username {
+    margin: 0;
+    padding: 32px 0px 0px 0px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #000;
+    background-color: $white;
+    padding: 16px 16px 16px 0px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px $wehabit-dark-green;
+
+    @include tablet {
+      padding: 24px 24px 24px 24px;
+    }
+  }
+
+  &__dates {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__title {
+    width: 17%;
+    margin: 0px 16px 0px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include tablet {
+      justify-content: center;
+    }
+
+    &-date {
+      color: $wehabit-dark-green;
+    }
+  }
+
+  &__date {
+    width: 10%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__habit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 16px 0;
+  }
+
+  &__check {
+    width: 10%;
+    height: 48px;
+    margin: 0;
+    border-radius: 5px;
+    accent-color: $wehabit-green;
+    cursor: pointer;
+
+    @include tablet {
+      width: 69px;
+      height: 56px;
+    }
+  }
+}
