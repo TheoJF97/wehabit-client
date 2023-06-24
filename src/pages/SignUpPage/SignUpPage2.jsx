@@ -36,7 +36,7 @@ export default function SignUpPage2() {
 
   return (
     <>
-      <div className="sign-up__container">
+      <section className="sign-up">
         <h1 className="sign-up__title">Sign Up</h1>
 
         <form onSubmit={handleSignup} className="sign-up__form">
@@ -66,7 +66,7 @@ export default function SignUpPage2() {
             Sign Up
           </button>
         </form>
-      </div>
+      </section>
     </>
   );
 }

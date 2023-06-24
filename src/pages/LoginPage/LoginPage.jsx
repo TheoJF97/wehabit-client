@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import ProfilePage from "../ProfilePage/ProfilePage";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
@@ -10,7 +9,7 @@ export default function LoginPage() {
   const loginUrl = `${serverUrl}/login`;
 
   // Declare state variables
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,19 +17,19 @@ export default function LoginPage() {
     e.preventDefault();
 
     // Grab the form's values
-    const username = e.target.username.value;
+    const email = e.target.email.value;
     const password = e.target.password.value;
 
     // Here send a POST request to loginUrl with username and password data
     axios
       .post(loginUrl, {
-        username,
+        email,
         password,
       })
       .then((response) => {
         sessionStorage.authToken = response.data.token;
-        setIsLoggedIn(true);
-        navigate("/");
+        // setIsLoggedIn(true);
+        navigate("/:id");
       })
       .catch(() => {
         setIsLoginError(true);
@@ -38,26 +37,34 @@ export default function LoginPage() {
       });
   };
 
-  const renderLogin = () => (
-    <div>
-      <h1>Login</h1>
-      {isLoginError && <label className="error">{errorMessage}</label>}
-      <form onSubmit={handleLogin}>
-        <div className="form-group">
-          Username: <input type="text" name="username" />
-        </div>
-        <div className="form-group">
-          Password: <input type="password" name="password" />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Login
-        </button>
-      </form>
-    </div>
-  );
-
   // Handle the Signup/Login
-  if (!isLoggedIn) return renderLogin();
+  // if (!isLoggedIn) return renderLogin();
 
-  return <ProfilePage />;
+  return (
+    <>
+      <section className="login">
+        <h1 className="login__title">Login</h1>
+        {isLoginError && <label className="error">{errorMessage}</label>}
+        <form onSubmit={handleLogin} className="login__form">
+          <div className="login__email">
+            email:
+            <input type="email" name="email" className="login__email-input" />
+          </div>
+
+          <div className="login__password">
+            password:
+            <input
+              type="password"
+              name="password"
+              className="login__password-input"
+            />
+          </div>
+
+          <button type="submit" className="login__button">
+            Login
+          </button>
+        </form>
+      </section>
+    </>
+  );
 }

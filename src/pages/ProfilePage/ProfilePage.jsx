@@ -8,6 +8,7 @@ import axios from "axios";
 
 export default function ProfilePage() {
   const [user, setUser] = useState([]);
+  const [userId, setUserId] = useState(null);
   const [hasError, setHasError] = useState(false);
 
   //Import server url from .env
@@ -16,12 +17,18 @@ export default function ProfilePage() {
   // Grab id
   let { id } = useParams();
 
-  //Axios call to get a user's name
+  //Axios call to get a user's id
   useEffect(() => {
     axios
-      .get(`${serverUrl}/users/${id}`)
+      .get(`${serverUrl}/profile`, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.authToken}`,
+        },
+      })
       .then((response) => {
-        setUser(response.data[0]);
+        console.log(response.data.userId);
+        setUserId(response.data.userId);
+        // setUser(response.data[0]);
       })
       .catch((error) => {
         console.log(error);
