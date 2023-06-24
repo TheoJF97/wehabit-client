@@ -1,14 +1,14 @@
 // Import components
-import { useParams } from "react-router-dom";
 import EncourageMints from "../../components/EncourageMints/EncourageMints";
 import Header from "../../components/Header/Header";
 import MyHabits from "../../components/MyHabits/MyHabits";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 export default function ProfilePage() {
-  const [user, setUser] = useState([]);
-  const [userId, setUserId] = useState(null);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
   //Import server url from .env
@@ -17,18 +17,16 @@ export default function ProfilePage() {
   // Grab id
   let { id } = useParams();
 
-  //Axios call to get a user's id
+  console.log(id);
+
+  // Axios call to get the user information
   useEffect(() => {
     axios
-      .get(`${serverUrl}/profile`, {
-        headers: {
-          Authorization: `Bearer ${sessionStorage.authToken}`,
-        },
-      })
+      .get(`${serverUrl}/users/${id}`)
       .then((response) => {
-        console.log(response.data.userId);
-        setUserId(response.data.userId);
-        // setUser(response.data[0]);
+        setUser(response.data);
+        console.log(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -36,8 +34,8 @@ export default function ProfilePage() {
       });
   }, [id, serverUrl]);
 
-  if (!user) {
-    return <span>Loading.....</span>;
+  if (isLoading) {
+    return <span>Loading...</span>;
   }
   if (hasError) {
     return <h1>Information not found</h1>;

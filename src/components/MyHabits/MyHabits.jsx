@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Habit from "../Habit/Habit";
 import { currentMonthYear, dates } from "../../utils/utils";
+import { useParams } from "react-router-dom";
 
 export default function MyHabits({ user }) {
   //Deconstruct prop user (id, name, email) for name:
   const { name } = user;
+
+  // Grab id
+  let { id } = useParams();
 
   //State variables
   const [habits, setHabits] = useState([]);
@@ -14,9 +18,6 @@ export default function MyHabits({ user }) {
 
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
-
-  // Grab id
-  let { id } = useParams();
 
   //Axios call to get a user's habits
   useEffect(() => {

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const navigate = useNavigate();
   // Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
   const loginUrl = `${serverUrl}/login`;
@@ -12,6 +11,8 @@ export default function LoginPage() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,19 +27,29 @@ export default function LoginPage() {
         email,
         password,
       })
+
       .then((response) => {
-        sessionStorage.authToken = response.data.token;
-        // setIsLoggedIn(true);
-        navigate("/:id");
+        const token = response.data.token;
+        sessionStorage.authToken = token;
+
+        // Fetch user ID after successful login
+        axios
+          .get(`${serverUrl}/profile`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            const userId = response.data.userId;
+            console.log(userId);
+            navigate(`/${userId}`);
+          });
       })
       .catch(() => {
         setIsLoginError(true);
         setErrorMessage("wrong credentials");
       });
   };
-
-  // Handle the Signup/Login
-  // if (!isLoggedIn) return renderLogin();
 
   return (
     <>
