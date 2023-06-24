@@ -9,8 +9,12 @@ export default function Header() {
           <img src={logo} alt="WeHabit Logo" className="header__logo" />
         </Link>
         <nav className="header__navigation">
-          <h3 className="header__link">MyHabits</h3>
-          <h3 className="header__link">TheirHabits</h3>
+          <Link to="/1">
+            <h3 className="header__link">MyHabits</h3>
+          </Link>
+          <Link to="/theirhabits">
+            <h3 className="header__link">TheirHabits</h3>
+          </Link>
           <h3 className="header__link">Knowledge</h3>
         </nav>
       </header>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import { useNavigate } from "react-router-dom";
 
-export default function LandingPage() {
+export default function LoginPage() {
   const navigate = useNavigate();
   // Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
@@ -52,33 +52,13 @@ export default function LandingPage() {
       .then((response) => {
         sessionStorage.authToken = response.data.token;
         setIsLoggedIn(true);
-        navigate("/")
+        navigate("/");
       })
       .catch(() => {
         setIsLoginError(true);
         setErrorMessage("wrong credentials");
       });
   };
-
-  const renderSignUp = () => (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSignup}>
-        <div className="form-group">
-          Username: <input type="text" name="username" />
-        </div>
-        <div className="form-group">
-          Name: <input type="text" name="name" />
-        </div>
-        <div className="form-group">
-          Password: <input type="password" name="password" />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Signup
-        </button>
-      </form>
-    </div>
-  );
 
   const renderLogin = () => (
     <div>
@@ -99,7 +79,6 @@ export default function LandingPage() {
   );
 
   // Handle the Signup/Login
-  if (!isSignedUp) return renderSignUp();
   if (!isLoggedIn) return renderLogin();
 
   return <ProfilePage />;

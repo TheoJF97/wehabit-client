@@ -9,8 +9,9 @@ import "./App.scss";
 // import Pages
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AddHabitPage from "./pages/AddHabitPage.jsx/AddHabitPage";
-import LandingPage from "./pages/LandingPage/LandingPage";
 import TheirHabitsPage from "./pages/TheirHabitsPage/TheirHabitsPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import SignUpPage2 from "./pages/SignUpPage/SignUpPage2";
 
 export default function App() {
   //State variables
@@ -35,7 +36,6 @@ export default function App() {
       });
   }, [serverUrl]);
 
-  console.log(users);
 
   if (isLoading) {
     return <span>Loading.....</span>;
@@ -49,7 +49,8 @@ export default function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<SignUpPage2 />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/:id" element={<ProfilePage />} />
           <Route path="/addhabit" element={<AddHabitPage />} />
           <Route
