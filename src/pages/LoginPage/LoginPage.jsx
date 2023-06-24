@@ -7,34 +7,12 @@ export default function LoginPage() {
   const navigate = useNavigate();
   // Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
-  const signupUrl = `${serverUrl}/signup`;
   const loginUrl = `${serverUrl}/login`;
 
   // Declare state variables
-  const [isSignedUp, setIsSignedUp] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  const handleSignup = (e) => {
-    e.preventDefault();
-
-    // Grab the form's values
-    const username = e.target.username.value;
-    const name = e.target.name.value;
-    const password = e.target.password.value;
-
-    // Here send a POST request to signupUrl with username, name and password data
-    axios
-      .post(signupUrl, {
-        username,
-        name,
-        password,
-      })
-      .then(() => {
-        setIsSignedUp(true);
-      });
-  };
 
   const handleLogin = (e) => {
     e.preventDefault();

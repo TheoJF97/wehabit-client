@@ -2,13 +2,13 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SignUpPage2 () {
+export default function SignUpPage2() {
   const navigate = useNavigate();
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
   const signupUrl = `${serverUrl}/signup`;
 
   // State Variables
-  const [signUpError, setSignUpError] = useState(false);
+  const [signUpError, setSignUpError] = useState("");
 
   const handleSignup = (event) => {
     event.preventDefault();
@@ -30,7 +30,7 @@ export default function SignUpPage2 () {
       })
       .catch((error) => {
         console.error("Signup failed:", error);
-        setSignUpError(true);
+        setSignUpError(error.response.data.message);
       });
   };
 
@@ -49,7 +49,7 @@ export default function SignUpPage2 () {
             email:
             <input type="email" name="email" className="sign-up__email-input" />
             {signUpError && (
-              <span className="sign-up__email-error">Invalid email</span>
+              <span className="sign-up__email-error">{signUpError}</span>
             )}
           </div>
 
