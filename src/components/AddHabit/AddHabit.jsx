@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function AddHabit() {
+export default function AddHabit({ currentUserId }) {
   const navigate = useNavigate();
 
   //Import server url from .env
@@ -21,7 +21,7 @@ export default function AddHabit() {
     axios
       .post(`${serverUrl}/habits`, newHabit)
       .then(() => {
-        navigate("/1");
+        navigate(`/${currentUserId}`);
       })
       .catch((err) => {
         console.log(err);

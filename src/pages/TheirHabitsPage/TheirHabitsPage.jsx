@@ -6,10 +6,6 @@ export default function TheirHabitsPage({ currentUserId, users }) {
     return user.id !== currentUserId;
   });
 
-  console.log(currentUserId);
-
-  console.log(filteredUsers);
-
   return (
     <>
       <Header />

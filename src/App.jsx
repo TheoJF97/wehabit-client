@@ -12,6 +12,7 @@ import AddHabitPage from "./pages/AddHabitPage.jsx/AddHabitPage";
 import TheirHabitsPage from "./pages/TheirHabitsPage/TheirHabitsPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage2 from "./pages/SignUpPage/SignUpPage2";
+import TheirHabitsProfilePage from "./pages/TheirHabitsProfilePage/TheirHabitsProfilePage";
 
 export default function App() {
   //State variables
@@ -45,8 +46,6 @@ export default function App() {
     return <h1>Information not found</h1>;
   }
 
-  console.log(currentUserId);
-
   return (
     <div className="App">
       <Router>
@@ -57,11 +56,24 @@ export default function App() {
             element={<LoginPage setCurrentUserId={setCurrentUserId} />}
           />
           <Route path="/:id" element={<ProfilePage />} />
-          <Route path="/addhabit" element={<AddHabitPage />} />
+          <Route
+            path="/addhabit"
+            element={<AddHabitPage />}
+            currentUserId={currentUserId}
+          />
           <Route
             path="/theirhabits"
             element={
               <TheirHabitsPage currentUserId={currentUserId} users={users} />
+            }
+          />
+          <Route
+            path="/theirhabits/:id"
+            element={
+              <TheirHabitsProfilePage
+                currentUserId={currentUserId}
+                users={users}
+              />
             }
           />
         </Routes>

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Habit from "../Habit/Habit";
 import { currentMonthYear, dates } from "../../utils/utils";
+import { Link } from "react-router-dom";
 
 export default function TheirHabits({ user, currentUserId }) {
   //Deconstruct prop user (id, name, email) for name:
@@ -30,24 +31,6 @@ export default function TheirHabits({ user, currentUserId }) {
       });
   }, [currentUserId, id, serverUrl]);
 
-  // useEffect(() => {
-  //   const fetchHabits = async () => {
-  //     try {
-  //       const response = await axios.get(`${serverUrl}/users/${id}/habits`);
-  //       const filteredHabits = response.data.filter(
-  //         (habit) => habit.user_id !== currentUserId
-  //       );
-  //       console.log(filteredHabits);
-  //       setHabits(filteredHabits);
-  //     } catch (error) {
-  //       console.log(error);
-  //       setHasError(true);
-  //     }
-  //   };
-
-  //   fetchHabits();
-  // }, [id, currentUserId, serverUrl]);
-
   if (hasError) {
     return <h1>Error fetching habits</h1>;
   }
@@ -56,7 +39,9 @@ export default function TheirHabits({ user, currentUserId }) {
     <>
       <section className="their-habits">
         <div className="their-habits__header">
-          <h1 className="their-habits__username">{name}</h1>
+          <Link to={`/theirhabits/${id}`}>
+            <h1 className="their-habits__username">{name}</h1>
+          </Link>
         </div>
 
         <div className="their-habits__container">
