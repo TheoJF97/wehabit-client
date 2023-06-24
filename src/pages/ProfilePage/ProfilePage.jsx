@@ -43,7 +43,7 @@ export default function ProfilePage() {
 
   return (
     <>
-      <Header />
+      <Header user={user} />
       <MyHabits user={user} />
       <EncourageMints />
     </>

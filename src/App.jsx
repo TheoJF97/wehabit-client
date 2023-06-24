@@ -15,6 +15,7 @@ import SignUpPage2 from "./pages/SignUpPage/SignUpPage2";
 
 export default function App() {
   //State variables
+  const [currentUserId, setCurrentUserId] = useState(null);
   const [users, setUsers] = useState([]);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +23,7 @@ export default function App() {
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  //Axios call to get all user's habits completions for a date range
+  //Axios call to get all users
   useEffect(() => {
     axios
       .get(`${serverUrl}/users/`)
@@ -36,7 +37,6 @@ export default function App() {
       });
   }, [serverUrl]);
 
-
   if (isLoading) {
     return <span>Loading.....</span>;
   }
@@ -45,17 +45,24 @@ export default function App() {
     return <h1>Information not found</h1>;
   }
 
+  console.log(currentUserId);
+
   return (
     <div className="App">
       <Router>
         <Routes>
           <Route path="/" element={<SignUpPage2 />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/login"
+            element={<LoginPage setCurrentUserId={setCurrentUserId} />}
+          />
           <Route path="/:id" element={<ProfilePage />} />
           <Route path="/addhabit" element={<AddHabitPage />} />
           <Route
             path="/theirhabits"
-            element={<TheirHabitsPage users={users} />}
+            element={
+              <TheirHabitsPage currentUserId={currentUserId} users={users} />
+            }
           />
         </Routes>
       </Router>

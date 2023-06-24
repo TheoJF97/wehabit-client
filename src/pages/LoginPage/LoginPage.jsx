@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function LoginPage() {
+export default function LoginPage({ setCurrentUserId }) {
   // Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
   const loginUrl = `${serverUrl}/login`;
@@ -41,7 +41,7 @@ export default function LoginPage() {
           })
           .then((response) => {
             const userId = response.data.userId;
-            console.log(userId);
+            setCurrentUserId(userId);
             navigate(`/${userId}`);
           });
       })
@@ -52,30 +52,28 @@ export default function LoginPage() {
   };
 
   return (
-    <>
-      <section className="login">
-        <h1 className="login__title">Login</h1>
-        {isLoginError && <label className="error">{errorMessage}</label>}
-        <form onSubmit={handleLogin} className="login__form">
-          <div className="login__email">
-            email:
-            <input type="email" name="email" className="login__email-input" />
-          </div>
+    <section className="login">
+      <h1 className="login__title">Login</h1>
+      {isLoginError && <label className="error">{errorMessage}</label>}
+      <form onSubmit={handleLogin} className="login__form">
+        <div className="login__email">
+          email:
+          <input type="email" name="email" className="login__email-input" />
+        </div>
 
-          <div className="login__password">
-            password:
-            <input
-              type="password"
-              name="password"
-              className="login__password-input"
-            />
-          </div>
+        <div className="login__password">
+          password:
+          <input
+            type="password"
+            name="password"
+            className="login__password-input"
+          />
+        </div>
 
-          <button type="submit" className="login__button">
-            Login
-          </button>
-        </form>
-      </section>
-    </>
+        <button type="submit" className="login__button">
+          Login
+        </button>
+      </form>
+    </section>
   );
 }

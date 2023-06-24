@@ -24,7 +24,12 @@ export default function MyHabits({ user }) {
     axios
       .get(`${serverUrl}/users/${id}/habits`)
       .then((response) => {
-        setHabits(response.data);
+        if (response.data.length === 0) {
+          // No Habits found for the user           
+          setHabits([]);
+        } else {
+          setHabits(response.data);
+        }
       })
       .catch((error) => {
         console.log(error);

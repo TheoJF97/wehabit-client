@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/wehabit-logo.png";
 
-export default function Header() {
+export default function Header({ user }) {
+  // const { id } = user;
+
   return (
     <>
       <header className="header">
@@ -9,7 +11,8 @@ export default function Header() {
           <img src={logo} alt="WeHabit Logo" className="header__logo" />
         </Link>
         <nav className="header__navigation">
-          <Link to="/1">
+          {/* <Link to={`/${id}`}> */}
+          <Link to="/" className="header__home">
             <h3 className="header__link">MyHabits</h3>
           </Link>
           <Link to="/theirhabits">
