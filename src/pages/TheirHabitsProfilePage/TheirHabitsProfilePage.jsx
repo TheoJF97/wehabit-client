@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import { useParams } from "react-router-dom";
 import TheirHabits from "../../components/TheirHabits/TheirHabits";
 import EncourageMints from "../../components/EncourageMints/EncourageMints";
+import SendEncourageMint from "../../components/SendEncourageMint/SendEncourageMint";
 
 export default function TheirHabitsProfilePage({ currentUserId, users }) {
   // Grab id
@@ -25,6 +26,7 @@ export default function TheirHabitsProfilePage({ currentUserId, users }) {
     <>
       <Header />
       <TheirHabits user={user} currentUserId={currentUserId} />
+      <SendEncourageMint currentUserId={currentUserId} />
       <EncourageMints />
     </>
   );

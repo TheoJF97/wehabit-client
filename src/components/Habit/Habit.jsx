@@ -45,7 +45,7 @@ export default function Habit({ habit }) {
       <div key={id} className="habit__habit">
         <h2 className="habit__title">{title}</h2>
         {dates.map((date, index) => {
-          // c reresents a completion of completions
+          // c represents a completion of completions
           const completion = completions.find(
             (c) => moment(c.date).format("YYYY-MM-DD") === date
           );
