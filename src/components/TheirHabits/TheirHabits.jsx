@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 export default function TheirHabits({ user, currentUserId }) {
   //Deconstruct prop user (id, name, email) for name:
   const { id, name } = user;
+  // console.log(user);
+  // console.log(id);
 
   //State variables
   const [habits, setHabits] = useState([]);
@@ -62,7 +64,7 @@ export default function TheirHabits({ user, currentUserId }) {
               </div>
 
               {habits.map((habit, habitId) => (
-                <Habit habit={habit} key={habitId} />
+                <Habit habit={habit} key={habitId} isMyHabits={false} />
               ))}
             </>
           )}

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { startDate, endDate, dates } from "../../utils/utils";
 import moment from "moment";
 
-export default function Habit({ habit }) {
+export default function Habit({ habit, isMyHabits }) {
   //State variables
   const [completions, setCompletions] = useState([]);
   const [hasError, setHasError] = useState(false);
@@ -57,35 +57,42 @@ export default function Habit({ habit }) {
               key={index}
               type="checkbox"
               checked={isChecked}
-              className="habit__check"
+              className={`${
+                isMyHabits
+                  ? "habit__check"
+                  : "habit__check habit__check--disabled"
+              }`}
               onChange={(e) => {
-                const updatedCompletions = [...completions];
-                const existingCompletion = updatedCompletions.find(
-                  (c) => c.date === date
-                );
-                if (existingCompletion) {
-                  existingCompletion.completed = e.target.checked ? 1 : 0;
-                } else {
-                  updatedCompletions.push({
-                    date,
-                    completed: e.target.checked ? 1 : 0,
-                  });
+                if (isMyHabits) {
+                  // Handle checkbox interaction only in MyHabits
+                  const updatedCompletions = [...completions];
+                  const existingCompletion = updatedCompletions.find(
+                    (c) => c.date === date
+                  );
+                  if (existingCompletion) {
+                    existingCompletion.completed = e.target.checked ? 1 : 0;
+                  } else {
+                    updatedCompletions.push({
+                      date,
+                      completed: e.target.checked ? 1 : 0,
+                    });
+                  }
+
+                  setCompletions(updatedCompletions);
+
+                  axios
+                    .post(`${serverUrl}/habits/${id}/completions/${date}`)
+                    .then((response) => {
+                      console.log(
+                        `Completion posted for habit id:${id} on date:${date}`,
+                        response
+                      );
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                      setHasError(true);
+                    });
                 }
-
-                setCompletions(updatedCompletions);
-
-                axios
-                  .post(`${serverUrl}/habits/${id}/completions/${date}`)
-                  .then((response) => {
-                    console.log(
-                      `Completion posted for habit id:${id} on date:${date}`,
-                      response
-                    );
-                  })
-                  .catch((error) => {
-                    console.log(error);
-                    setHasError(true);
-                  });
               }}
             />
           );

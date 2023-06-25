@@ -46,8 +46,6 @@ export default function App() {
     return <h1>Information not found</h1>;
   }
 
-
-
   return (
     <div className="App">
       <Router>

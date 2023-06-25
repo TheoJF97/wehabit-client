@@ -2,30 +2,19 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 export default function SendEncourageMint({ currentUserId }) {
-  // PSEUDO:
-  // get target id which is id from useParams
-  // get author which is the currentUserId
-  // POST: serverUrl/:author_id/:target_id
-  // send: content
   // Grab id
   let { id } = useParams();
-
-  console.log(currentUserId);
-  console.log(id);
 
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  //handle submit
-  const onSubmitHandler = (event) => {
-    //prevent refresh
+   const onSubmitHandler = (event) => {
     event.preventDefault();
 
     const newEncourageMint = {
       content: event.target.encouragemint.value,
     };
 
-    //send encouragemint
     axios
       .post(
         `${serverUrl}/encouragemints/${currentUserId}/${id}`,

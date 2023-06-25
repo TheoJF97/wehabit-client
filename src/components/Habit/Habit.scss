@@ -36,7 +36,10 @@
     border-radius: 5px;
     accent-color: $wehabit-green;
     cursor: pointer;
-    // pointer-events: none;
+
+    &--disabled {
+      pointer-events: none;
+    }
 
     @include tablet {
       width: 69px;

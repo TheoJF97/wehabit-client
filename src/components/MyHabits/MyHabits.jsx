@@ -5,9 +5,9 @@ import Habit from "../Habit/Habit";
 import { currentMonthYear, dates } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 
-export default function MyHabits({ user }) {
+export default function MyHabits({ currentUser }) {
   //Deconstruct prop user (id, name, email) for name:
-  const { name } = user;
+  const { name } = currentUser;
 
   // Grab id
   let { id } = useParams();
@@ -68,7 +68,7 @@ export default function MyHabits({ user }) {
           </div>
 
           {habits.map((habit, habitId) => (
-            <Habit habit={habit} key={habitId} />
+            <Habit habit={habit} key={habitId} isMyHabits={true} />
           ))}
         </div>
       </section>

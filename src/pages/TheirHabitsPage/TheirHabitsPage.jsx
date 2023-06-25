@@ -6,14 +6,17 @@ export default function TheirHabitsPage({ currentUserId, users }) {
     return user.id !== currentUserId;
   });
 
-  const user = users.find((user) => {
+  const currentUser = users.find((user) => {
     return user.id === currentUserId;
   });
 
+  // console.log(currentUserId);
+  // console.log(users);
+  console.log(currentUser);
 
   return (
     <>
-      <Header user={user} />
+      <Header currentUser={currentUser} />
       {filteredUsers.map((user, userId) => {
         return (
           <TheirHabits user={user} key={userId} currentUserId={currentUserId} />

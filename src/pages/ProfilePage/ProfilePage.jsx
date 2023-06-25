@@ -7,7 +7,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 export default function ProfilePage() {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -17,12 +17,12 @@ export default function ProfilePage() {
   // Grab id
   let { id } = useParams();
 
-  // Axios call to get the user information
+  // Axios call to get the currentUser information
   useEffect(() => {
     axios
       .get(`${serverUrl}/users/${id}`)
       .then((response) => {
-        setUser(response.data[0]);
+        setCurrentUser(response.data[0]);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -31,7 +31,6 @@ export default function ProfilePage() {
       });
   }, [id, serverUrl]);
 
-  console.log(user);
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -42,8 +41,8 @@ export default function ProfilePage() {
 
   return (
     <>
-      <Header user={user} />
-      <MyHabits user={user} />
+      <Header currentUser={currentUser} />
+      <MyHabits currentUser={currentUser} />
       <EncourageMints />
     </>
   );
