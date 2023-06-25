@@ -18,15 +18,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__username {
     margin: 0;
     padding: 32px 0px 0px 0px;
+
+    @include tablet {
+      margin: 16px 0px 16px 0px;
+      padding: 0;
+    }
   }
 
   &__add-habit {
     @include button;
+
+    @include tablet {
+      font-size: 18px;
+    }
   }
 
   &__container {

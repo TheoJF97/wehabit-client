@@ -41,7 +41,8 @@
     width: 100%;
 
     @include tablet {
-      width: 40%;
+      width: 30%;
+      justify-content: space-between;
       align-items: center;
       padding-right: 32px;
     }

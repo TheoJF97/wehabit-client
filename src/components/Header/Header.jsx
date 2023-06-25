@@ -13,13 +13,12 @@ export default function Header({ currentUser }) {
           <img src={logo} alt="WeHabit Logo" className="header__logo" />
         </Link>
         <nav className="header__navigation">
-          <Link to={`/${id}`} className="header__home">
-            <h3 className="header__link">MyHabits</h3>
+          <Link to={`/${id}`} className="header__link">
+            <h3 className="header__link-name">MyHabits</h3>
           </Link>
-          <Link to="/theirhabits">
-            <h3 className="header__link">TheirHabits</h3>
+          <Link to="/theirhabits" className="header__link">
+            <h3 className="header__link-name">TheirHabits</h3>
           </Link>
-          <h3 className="header__link">Knowledge</h3>
         </nav>
       </header>
     </>
