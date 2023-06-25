@@ -41,7 +41,10 @@ export default function TheirHabits({ user, currentUserId }) {
     <>
       <section className="their-habits">
         <div className="their-habits__header">
-          <Link to={`/theirhabits/${id}`}>
+          <Link
+            to={`/theirhabits/${id}`}
+            className="their-habits__username-link"
+          >
             <h1 className="their-habits__username">{name}</h1>
           </Link>
         </div>

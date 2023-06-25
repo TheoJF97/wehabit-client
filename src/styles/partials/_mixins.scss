@@ -32,4 +32,22 @@
   background-color: $wehabit-dark-green;
   color: white;
   box-shadow: 10px 5px 5px $wehabit-dark-green;
+  
+  &:hover {
+    background-color: $mint;
+  }
+}
+
+@mixin card {
+  width: 100%;
+  border: 1px solid #000;
+  background-color: $white;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px #547a57;
+  padding: 0px 16px 16px 16px;
+
+  @include tablet {
+    padding: 24px 24px 24px 24px;
+  }
 }

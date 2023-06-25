@@ -1,0 +1,87 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.signup {
+  color: black;
+  background-color: $wehabit-green;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include desktop {
+    @include desktop-width;
+  }
+  &__card {
+    @include card;
+    margin: 1rem;
+    width: 92%;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__logo {
+    width: 295px;
+    border-radius: 5px;
+    margin: 16px;
+
+    @include tablet {
+      width: 350px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__redirect {
+    text-decoration: none;
+    color: $wehabit-black;
+
+    &-message {
+      &:hover {
+        color: $green-sheen;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0px 0px 0px;
+  }
+
+  &__name,
+  &__email,
+  &__password {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+
+    &-label {
+      width: 80px;
+    }
+    &-input {
+      min-width: 160px;
+      flex-grow: 1;
+    }
+  }
+
+  &__button {
+    @include button;
+    color: $white;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

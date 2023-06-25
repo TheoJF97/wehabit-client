@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo/WeHabit-full-logo.png";
 
 export default function SignUpPage2() {
   const navigate = useNavigate();
@@ -36,36 +37,60 @@ export default function SignUpPage2() {
 
   return (
     <>
-      <section className="sign-up">
-        <h1 className="sign-up__title">Sign Up</h1>
+      <section className="signup">
+        <img
+          src={logo}
+          alt="WeHabit Spur Growth logo"
+          className="signup__logo"
+        />
+        <div className="signup__card">
+          <h1 className="signup__title">Sign Up</h1>
+          <Link to="/login" className="signup__redirect">
+            <span className="signup__redirect-message">
+              Already signed up? Login Here
+            </span>
+          </Link>
 
-        <form onSubmit={handleSignup} className="sign-up__form">
-          <div className="sign-up__name">
-            Full name:
-            <input type="text" name="name" className="sign-up__name-input" />
-          </div>
+          <form onSubmit={handleSignup} className="signup__form">
+            <div className="signup__name">
+              <label htmlFor="name" className="signup__name-label">
+                Full name:
+              </label>
+              <input type="text" name="name" className="signup__name-input" />
+            </div>
 
-          <div className="sign-up__email">
-            email:
-            <input type="email" name="email" className="sign-up__email-input" />
-            {signUpError && (
-              <span className="sign-up__email-error">{signUpError}</span>
-            )}
-          </div>
+            <div className="signup__email">
+              <label htmlFor="email" className="signup__email-label">
+                Email:
+              </label>
+              <input
+                type="email"
+                name="email"
+                className="signup__email-input"
+              />
+              {signUpError && (
+                <span className="signup__email-error">{signUpError}</span>
+              )}
+            </div>
 
-          <div className="sign-up__password">
-            password:
-            <input
-              type="password"
-              name="password"
-              className="sign-up__password-input"
-            />
-          </div>
+            <div className="signup__password">
+              <label htmlFor="password" className="signup__password-label">
+                Password:
+              </label>
+              <input
+                type="password"
+                name="password"
+                className="signup__password-input"
+              />
+            </div>
 
-          <button type="submit" className="sign-up__button">
-            Sign Up
-          </button>
-        </form>
+            <div className="signup__button-container">
+              <button type="submit" className="signup__button">
+                Sign Up
+              </button>
+            </div>
+          </form>
+        </div>
       </section>
     </>
   );

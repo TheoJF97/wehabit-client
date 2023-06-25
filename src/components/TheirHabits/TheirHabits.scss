@@ -23,6 +23,15 @@
   &__username {
     margin: 0;
     padding: 32px 0px 0px 0px;
+
+    &-link {
+      text-decoration: none;
+      color: $mint;
+
+      &:hover {
+        color: $wehabit-dark-green;
+      }
+    }
   }
 
   &__container {
@@ -36,6 +45,8 @@
     box-sizing: border-box;
     border-radius: 5px;
     box-shadow: 10px 5px 5px $wehabit-dark-green;
+
+    @include card;
 
     @include tablet {
       padding: 24px 24px 24px 24px;

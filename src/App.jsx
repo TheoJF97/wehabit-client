@@ -58,7 +58,9 @@ export default function App() {
           <Route path="/:id" element={<ProfilePage />} />
           <Route
             path="/addhabit"
-            element={<AddHabitPage currentUserId={currentUserId} users={users} />}
+            element={
+              <AddHabitPage currentUserId={currentUserId} users={users} />
+            }
             currentUserId={currentUserId}
           />
           <Route
