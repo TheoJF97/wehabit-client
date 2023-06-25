@@ -17,15 +17,12 @@ export default function ProfilePage() {
   // Grab id
   let { id } = useParams();
 
-  console.log(id);
-
   // Axios call to get the user information
   useEffect(() => {
     axios
       .get(`${serverUrl}/users/${id}`)
       .then((response) => {
-        setUser(response.data);
-        console.log(response.data);
+        setUser(response.data[0]);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -33,6 +30,8 @@ export default function ProfilePage() {
         setHasError(true);
       });
   }, [id, serverUrl]);
+
+  console.log(user);
 
   if (isLoading) {
     return <span>Loading...</span>;

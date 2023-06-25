@@ -2,11 +2,15 @@
 import AddHabit from "../../components/AddHabit/AddHabit";
 import Header from "../../components/Header/Header";
 
-export default function AddHabitPage() {
+export default function AddHabitPage({ currentUserId, users }) {
+  const user = users.find((user) => {
+    return user.id === currentUserId;
+  });
+
   return (
     <>
-      <Header />
-      <AddHabit />
+      <Header user={user} />
+      <AddHabit currentUserId={currentUserId} />
     </>
   );
 }

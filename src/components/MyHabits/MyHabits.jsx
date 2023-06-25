@@ -25,7 +25,7 @@ export default function MyHabits({ user }) {
       .get(`${serverUrl}/users/${id}/habits`)
       .then((response) => {
         if (response.data.length === 0) {
-          // No Habits found for the user           
+          // No Habits found for the user
           setHabits([]);
         } else {
           setHabits(response.data);

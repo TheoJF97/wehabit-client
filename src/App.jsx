@@ -46,6 +46,8 @@ export default function App() {
     return <h1>Information not found</h1>;
   }
 
+
+
   return (
     <div className="App">
       <Router>
@@ -58,7 +60,7 @@ export default function App() {
           <Route path="/:id" element={<ProfilePage />} />
           <Route
             path="/addhabit"
-            element={<AddHabitPage />}
+            element={<AddHabitPage currentUserId={currentUserId} users={users} />}
             currentUserId={currentUserId}
           />
           <Route
