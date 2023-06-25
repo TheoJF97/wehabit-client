@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddHabit({ currentUserId }) {
   const navigate = useNavigate();
+  console.log(currentUserId);
 
   //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
@@ -14,7 +15,7 @@ export default function AddHabit({ currentUserId }) {
 
     const newHabit = {
       title: event.target.title.value,
-      user_id: 1,
+      user_id: currentUserId,
     };
 
     //add the habit
