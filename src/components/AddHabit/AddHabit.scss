@@ -3,113 +3,102 @@
 @use "../../styles/partials/variables" as *;
 
 .addhabit {
+  color: black;
   background-color: $wehabit-green;
-  padding: 0px 16px 16px 16px;
+  height: 100vh;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
-  @include tablet {
-    padding: 0px 24px 24px 24px;
-  }
+  justify-content: flex-start;
+  align-items: center;
 
   @include desktop {
     @include desktop-width;
   }
-
-  &__header {
-    margin: 0;
-    padding: 32px 0px 0px 0px;
-    text-align: center;
-  }
-
-  &__inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__add-habit {
-    width: 150px;
-    height: 40px;
-    margin: 16px 0px 16px 0px;
-    border-radius: 5px;
-    background-color: $wehabit-dark-green;
-    color: white;
-  }
-
-  &__submit {
-    @include button;
-  }
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border: 1px solid #000;
-    background-color: $white;
-    padding: 16px 16px 16px 0px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px $wehabit-dark-green;
+  &__card {
+    @include card;
+    margin: 1rem;
+    width: 92%;
 
     @include tablet {
-      padding: 24px 24px 24px 24px;
+      width: 50%;
     }
   }
 
-  &__dates {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
+  &__logo {
+    width: 295px;
+    border-radius: 5px;
+    margin: 16px;
+
+    @include tablet {
+      width: 350px;
+    }
   }
 
   &__title {
-    width: 17%;
-    margin: 0px 16px 0px 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    margin-bottom: 0;
+  }
 
-    @include tablet {
+  &__redirect {
+    text-decoration: none;
+    color: $wehabit-black;
+
+    &-message {
+      &:hover {
+        color: $green-sheen;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+
+    &-label {
+      width: 80px;
+    }
+
+    &-input {
+      min-width: 160px;
+      flex-grow: 1;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    &-label {
+      width: 80px;
+    }
+
+    &-input {
+      min-width: 160px;
+      flex-grow: 1;
+    }
+  }
+
+  &__button {
+    @include button;
+    color: $white;
+
+    &-container {
+      display: flex;
       justify-content: center;
     }
-
-    &-date {
-      color: $wehabit-dark-green;
-    }
   }
 
-  &__date {
-    width: 10%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  &__habit {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 16px 0;
-  }
-
-  &__check {
-    width: 10%;
-    height: 48px;
-    margin: 0;
-    border-radius: 5px;
-    accent-color: $wehabit-green;
-    cursor: pointer;
-
-    @include tablet {
-      width: 69px;
-      height: 56px;
-    }
+  &__error {
+    color: red;
   }
 }

@@ -65,12 +65,14 @@ export default function LoginPage({ setCurrentUserId }) {
         </Link>
 
         <form onSubmit={handleLogin} className="login__form">
+          
           <div className="login__email">
             <label htmlFor="email" className="login__email-label">
               Email:
             </label>
             <input type="email" name="email" className="login__email-input" />
           </div>
+
           <div className="login__password">
             <label htmlFor="password" className="login__password-label">
               Password:
@@ -80,13 +82,15 @@ export default function LoginPage({ setCurrentUserId }) {
               name="password"
               className="login__password-input"
             />
-          </div>
+          </div>          
           {isLoginError && <label className="login__error">{errorMessage}</label>}
+          
           <div className="login__button-container">
             <button type="submit" className="login__button">
               Login
             </button>
           </div>
+          
         </form>
       </div>
     </section>

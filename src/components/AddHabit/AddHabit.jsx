@@ -31,22 +31,42 @@ export default function AddHabit({ currentUserId }) {
 
   return (
     <>
-      <form className="addhabit" onSubmit={onSubmitHandler}>
-        <h1 className="addhabit__header">AddHabit</h1>
+      <section className="addhabit">
+        <div className="addhabit__card">
+          <h1 className="addhabit__header">AddHabit</h1>
+          <form className="addhabit__form" onSubmit={onSubmitHandler}>
+            <div className="addhabit__title">
+              <label htmlFor="title" className="addhabit__title-label">
+                Title:
+              </label>
+              <input
+                type="text"
+                name="title"
+                className="addhabit__title-input"
+              />
+            </div>
 
-        <div className="addhabit__inputs">
-          <label htmlFor="Title" className="addhabit__label">
-            Title
-          </label>
-          <input
-            type="text"
-            htmlFor="Title"
-            name="title"
-            className="addhabit__input"
-          />
-          <button className="addhabit__submit">Submit</button>
+            <div className="addhabit__description">
+              <label
+                htmlFor="description"
+                className="addhabit__description-label"
+              >
+                Description:
+              </label>
+              <textarea
+                name="description"
+                cols="30"
+                rows="10"
+                className="addhabit__description-input"
+              ></textarea>
+            </div>
+
+            <div className="addhabit__button-container">
+              <button className="addhabit__button">Submit</button>
+            </div>
+          </form>
         </div>
-      </form>
+      </section>
     </>
   );
 }
