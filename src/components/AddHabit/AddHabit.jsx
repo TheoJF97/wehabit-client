@@ -15,6 +15,7 @@ export default function AddHabit({ currentUserId }) {
 
     const newHabit = {
       title: event.target.title.value,
+      description: event.target.description.value,
       user_id: currentUserId,
     };
 
