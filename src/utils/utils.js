@@ -17,6 +17,9 @@ while (startDateObj.isSameOrBefore(endDateObj, "day")) {
   startDateObj.add(1, "day");
 }
 
+const formattedDates = dates.map((date) => moment(date).format("ddd D"));
+console.log(formattedDates);
+
 const currentMonthYear = moment().format("MMMM YYYY");
 
-export { startDate, endDate, dates, currentMonthYear };
+export { startDate, endDate, dates, currentMonthYear, formattedDates };

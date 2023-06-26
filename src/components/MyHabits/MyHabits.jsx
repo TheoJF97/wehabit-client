@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Habit from "../Habit/Habit";
-import { currentMonthYear, dates } from "../../utils/utils";
+import { currentMonthYear, dates, formattedDates } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 
 export default function MyHabits({ currentUser }) {
@@ -56,11 +56,11 @@ export default function MyHabits({ currentUser }) {
         </div>
         <div className="myhabits__container">
           <div className="myhabits__dates">
-            <h2 className="myhabits__title myhabits__title-date">
+            <h2 className="myhabits__month-year">
               {currentMonthYear}
             </h2>
 
-            {dates.map((date, index) => (
+            {formattedDates.map((date, index) => (
               <span key={index} className="myhabits__date">
                 {date}
               </span>

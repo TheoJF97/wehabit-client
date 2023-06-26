@@ -17,6 +17,10 @@
   &__header {
     margin: 0;
     padding: 32px 0px 24px 0px;
+
+    @include tablet {
+      padding: 32px 0px 16px 0px;
+    }
   }
 
   &__container {

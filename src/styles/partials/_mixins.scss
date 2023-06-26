@@ -32,7 +32,8 @@
   background-color: $wehabit-dark-green;
   color: white;
   box-shadow: 10px 5px 5px $wehabit-dark-green;
-  
+  cursor: pointer;
+
   &:hover {
     background-color: $mint;
   }

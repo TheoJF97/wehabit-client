@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 // Note: dates is an array of strings representing range of dates from startDate to endDate
-import { startDate, endDate, dates } from "../../utils/utils";
+import { startDate, endDate, dates, } from "../../utils/utils";
 import moment from "moment";
 
 export default function Habit({ habit, isMyHabits }) {
