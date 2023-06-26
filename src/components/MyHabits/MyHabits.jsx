@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Habit from "../Habit/Habit";
-import { currentMonthYear, dates, formattedDates } from "../../utils/utils";
+import { currentMonthYear, formattedDates } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 
 export default function MyHabits({ currentUser }) {

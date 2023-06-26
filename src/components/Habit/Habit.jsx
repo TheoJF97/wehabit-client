@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 // Note: dates is an array of strings representing range of dates from startDate to endDate
-import { startDate, endDate, dates, } from "../../utils/utils";
+import { startDate, endDate, dates } from "../../utils/utils";
 import moment from "moment";
 
 export default function Habit({ habit, isMyHabits }) {
@@ -42,7 +42,7 @@ export default function Habit({ habit, isMyHabits }) {
 
   return (
     <>
-      <div key={id} className="habit__habit">
+      <div key={id} className="habit">
         <h2 className="habit__title">{title}</h2>
         {dates.map((date, index) => {
           // c represents a completion of completions

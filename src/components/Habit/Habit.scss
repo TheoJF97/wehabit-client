@@ -3,14 +3,13 @@
 @use "../../styles/partials/variables" as *;
 
 .habit {
-  &__habit {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: 16px 0;
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 16px 0;
+  gap: 5px;
 
   &__title {
     width: 17%;

@@ -34,10 +34,7 @@ export default function SendEncourageMint({ currentUserId }) {
       <form className="send-encouragemint" onSubmit={onSubmitHandler}>
         <h1 className="send-encouragemint__header">Send Encouragemint 🍬</h1>
 
-        <div className="send-encouragemint__inputs">
-          <label htmlFor="encouragemint" className="send-encouragemint__label">
-            🍬
-          </label>
+        <div className="send-encouragemint__inputs">          
           <textarea
             name="encouragemint"
             cols="30"

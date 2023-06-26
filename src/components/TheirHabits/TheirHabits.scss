@@ -26,7 +26,7 @@
 
     &-link {
       text-decoration: none;
-      color: $mint;
+      color: black;
 
       &:hover {
         color: $wehabit-dark-green;
@@ -38,15 +38,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    border: 1px solid #000;
-    background-color: $white;
-    padding: 16px 16px 16px 0px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px $wehabit-dark-green;
-
     @include card;
+    padding: 16px 16px 16px 0px;
 
     @include tablet {
       padding: 24px 24px 24px 24px;
@@ -78,11 +71,7 @@
   }
 
   &__date {
-    width: 10%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include date;
   }
 
   &__habit {
@@ -103,7 +92,6 @@
     cursor: pointer;
 
     @include tablet {
-      width: 69px;
       height: 56px;
     }
   }
