@@ -21,17 +21,17 @@
 
 @mixin desktop-width {
   margin: 0 auto;
-  width: 1020px;
+  width: 63.75rem;
 }
 
 @mixin button {
-  width: 150px;
-  height: 40px;
-  margin: 16px 0px 16px 0px;
-  border-radius: 5px;
+  width: 9.375rem;
+  height: 2.5rem;
+  margin: 1rem 0rem 1rem 0rem;
+  border-radius: .3125rem;
   background-color: $wehabit-dark-green;
   color: white;
-  box-shadow: 10px 5px 5px $wehabit-dark-green;
+  box-shadow: .625rem .3125rem .3125rem $wehabit-dark-green;
   cursor: pointer;
 
   &:hover {
@@ -41,15 +41,15 @@
 
 @mixin card {
   width: 100%;
-  border: 1px solid #000;
+  border: .0625rem solid #000;
   background-color: $white;
   box-sizing: border-box;
-  border-radius: 5px;
-  box-shadow: 10px 5px 5px #547a57;
-  padding: 0px 16px 16px 16px;
+  border-radius: .3125rem;
+  box-shadow: .625rem .3125rem .3125rem #547a57;
+  padding: 0rem 1rem 1rem 1rem;
 
   @include tablet {
-    padding: 24px 24px 24px 24px;
+    padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   }
 }
 
@@ -64,7 +64,7 @@
 }
 
 @mixin input {
-  min-width: 160px;
+  min-width: 10rem;
   flex-grow: 1;
   font-family: "Avenir Next";
   color: $steel-blue;
@@ -76,6 +76,6 @@
   }
 
   &:focus {
-    border: 0.125rem solid $wehabit-green;
+    border: .125rem solid $wehabit-green;
   }
 }

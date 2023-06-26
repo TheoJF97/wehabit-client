@@ -20,43 +20,43 @@
 }
 
 h1 {
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 1.5rem;
+  line-height: 2.25rem;
 
   @include tablet {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 }
 
 h2 {
-  font-size: 13px;
+  font-size: .8125rem;
 
   @include tablet {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
 h3 {
-  font-size: 15px;
+  font-size: .9375rem;
 
   @include tablet {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
 }
 
 p {
-  font-size: 15px;
+  font-size: .9375rem;
 
   @include tablet {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 
 span {
-  font-size: 13px;
+  font-size: .8125rem;
 
   @include tablet {
-    font-size: 15px;
+    font-size: .9375rem;
   }
 }

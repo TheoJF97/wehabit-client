@@ -4,10 +4,10 @@
 
 .myhabits {
   background-color: $wehabit-green;
-  padding: 0px 16px 16px 16px;
+  padding: 0rem 1rem 1rem 1rem;
 
   @include tablet {
-    padding: 0px 24px 24px 24px;
+    padding: 0rem 1.5rem 1.5rem 1.5rem;
   }
 
   @include desktop {
@@ -27,20 +27,20 @@
 
   &__username {
     margin: 0;
-    padding: 0px 0px 0px 0px;
+    padding: 0rem 0rem 0rem 0rem;
 
     @include tablet {
-      margin: 16px 0px 10px 0px;
+      margin: 1rem 0rem .625rem 0rem;
       padding: 0;
     }
   }
 
   &__add-habit {
     @include button;
-    font-size: 15px;
+    font-size: .9375rem;
 
     @include tablet {
-      font-size: 18px;
+      font-size: 1.125rem;
     }
   }
 
@@ -49,15 +49,15 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    border: 1px solid #000;
+    border: .0625rem solid #000;
     background-color: $white;
-    padding: 16px 16px 16px 0px;
+    padding: 1rem 1rem 1rem 0rem;
     box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px $wehabit-dark-green;
+    border-radius: .3125rem;
+    box-shadow: .625rem .3125rem .3125rem $wehabit-dark-green;
 
     @include tablet {
-      padding: 24px 24px 24px 24px;
+      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
     }
   }
 
@@ -70,7 +70,7 @@
 
   &__month-year {
     width: 17%;
-    margin: 0px 16px 0px 16px;
+    margin: 0rem 1rem 0rem 1rem;
     display: flex;
     justify-content: center;
     align-items: center;

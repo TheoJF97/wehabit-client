@@ -15,25 +15,26 @@
   @include desktop {
     @include desktop-width;
   }
+
+  &__logo {
+    width: 18.4375rem;
+    border-radius: .3125rem;
+    margin: 1rem;
+
+    @include tablet {
+      width: 21.875rem;
+    }
+  }
+
   &__card {
     @include card;
-    margin: 16px;
+    margin: 1rem;
     width: 92%;
 
     @include tablet {
       width: 50%;
     }
-  }
-
-  &__logo {
-    width: 295px;
-    border-radius: 5px;
-    margin: 16px;
-
-    @include tablet {
-      width: 350px;
-    }
-  }
+  }  
 
   &__title {
     margin-bottom: 0;
@@ -54,8 +55,8 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 16px 0px 0px 0px;
+    gap: 1rem;
+    padding: 1rem 0rem 0rem 0rem;
   }
 
   &__name,
@@ -63,11 +64,11 @@
   &__password {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 1rem;
     align-items: center;
 
     &-label {
-      width: 80px;
+      width: 5rem;
     }
 
     &-input {

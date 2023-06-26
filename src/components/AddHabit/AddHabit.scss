@@ -26,12 +26,12 @@
   }
 
   &__logo {
-    width: 295px;
-    border-radius: 5px;
-    margin: 16px;
+    width: 18.4375rem;
+    border-radius: .3125rem;
+    margin: 1rem;
 
     @include tablet {
-      width: 350px;
+      width: 21.875rem;
     }
   }
 
@@ -54,18 +54,18 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 0px 0px 0px 0px;
+    gap: 1rem;
+    padding: 0rem 0rem 0rem 0rem;
   }
 
   &__title {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 1rem;
     align-items: center;
 
     &-label {
-      width: 80px;
+      width: 5rem;
     }
 
     &-input {
@@ -78,7 +78,7 @@
     flex-direction: column;
 
     &-label {
-      width: 80px;
+      width: 5rem;
     }
 
     &-input {
