@@ -15,7 +15,7 @@
   @include desktop {
     @include desktop-width;
   }
-  
+
   &__card {
     @include card;
     margin: 1rem;
@@ -59,7 +59,6 @@
     padding: 16px 0px 0px 0px;
   }
 
-  &__name,
   &__email,
   &__password {
     display: flex;

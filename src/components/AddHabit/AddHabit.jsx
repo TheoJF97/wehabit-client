@@ -44,7 +44,7 @@ export default function AddHabit({ currentUserId }) {
                 type="text"
                 name="title"
                 className="addhabit__title-input"
-                placeholder="Journaling"
+                placeholder="Ex: Journaling"
               />
             </div>
 
@@ -60,7 +60,7 @@ export default function AddHabit({ currentUserId }) {
                 cols="30"
                 rows="10"
                 className="addhabit__description-input"
-                placeholder="I want to write the highlights/lowlights of my day every night after brushing my teeth, before bed. "
+                placeholder="Ex: I want to write the highlights/lowlights of my day every night after brushing my teeth, before bed. "
               ></textarea>
             </div>
 
