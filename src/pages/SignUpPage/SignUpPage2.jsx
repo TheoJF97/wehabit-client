@@ -52,6 +52,7 @@ export default function SignUpPage2() {
           </Link>
 
           <form onSubmit={handleSignup} className="signup__form">
+            
             <div className="signup__name">
               <label htmlFor="name" className="signup__name-label">
                 Full name:

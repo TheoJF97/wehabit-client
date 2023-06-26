@@ -6,7 +6,8 @@
 @use "./components/Habit/Habit.scss" as *;
 @use "./components/SendEncourageMint/SendEncourageMint.scss" as *;
 @use "./pages/SignUpPage/SignUpPage.scss" as *;
-@use "./components/TheirHabits/TheirHabits.scss";
+@use "./components/TheirHabits/TheirHabits.scss" as *;
+@use "./pages/LoginPage/LoginPage.scss" as *;
 
 // Link Partials SASS Styling
 @use "./styles/partials/fonts" as *;
