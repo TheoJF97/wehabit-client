@@ -1,4 +1,3 @@
-// Import components
 import EncourageMints from "../../components/EncourageMints/EncourageMints";
 import Header from "../../components/Header/Header";
 import MyHabits from "../../components/MyHabits/MyHabits";
@@ -11,13 +10,10 @@ export default function ProfilePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
-  //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  // Grab id
   let { id } = useParams();
 
-  // Axios call to get the currentUser information
   useEffect(() => {
     axios
       .get(`${serverUrl}/users/${id}`)

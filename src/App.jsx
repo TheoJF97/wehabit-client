@@ -15,16 +15,13 @@ import SignUpPage2 from "./pages/SignUpPage/SignUpPage2";
 import TheirHabitsProfilePage from "./pages/TheirHabitsProfilePage/TheirHabitsProfilePage";
 
 export default function App() {
-  //State variables
   const [currentUserId, setCurrentUserId] = useState(null);
   const [users, setUsers] = useState([]);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  //Axios call to get all users
   useEffect(() => {
     axios
       .get(`${serverUrl}/users/`)

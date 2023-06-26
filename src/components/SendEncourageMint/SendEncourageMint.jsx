@@ -2,10 +2,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 export default function SendEncourageMint({ currentUserId }) {
-  // Grab id
   let { id } = useParams();
 
-  //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
    const onSubmitHandler = (event) => {
@@ -34,7 +32,7 @@ export default function SendEncourageMint({ currentUserId }) {
       <form className="send-encouragemint" onSubmit={onSubmitHandler}>
         <h1 className="send-encouragemint__header">Send Encouragemint 🍬</h1>
 
-        <div className="send-encouragemint__inputs">          
+        <div className="send-encouragemint__content">          
           <textarea
             name="encouragemint"
             cols="30"

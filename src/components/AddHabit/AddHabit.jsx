@@ -3,14 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function AddHabit({ currentUserId }) {
   const navigate = useNavigate();
-  console.log(currentUserId);
 
-  //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  //handle submit
   const onSubmitHandler = (event) => {
-    //prevent refresh
     event.preventDefault();
 
     const newHabit = {
@@ -19,7 +15,6 @@ export default function AddHabit({ currentUserId }) {
       user_id: currentUserId,
     };
 
-    //add the habit
     axios
       .post(`${serverUrl}/habits`, newHabit)
       .then(() => {

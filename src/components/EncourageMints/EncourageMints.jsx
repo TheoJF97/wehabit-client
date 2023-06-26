@@ -3,17 +3,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function EncourageMints() {
-  //State variables
   const [encourageMints, setEncourageMints] = useState([]);
   const [hasError, setHasError] = useState(false);
 
-  //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  // Grab id
   let { id } = useParams();
 
-  //Axios call to get a user's encouragemints
   useEffect(() => {
     axios
       .get(`${serverUrl}/users/${id}/encouragemints`)
@@ -40,11 +36,11 @@ export default function EncourageMints() {
         <h1 className="encouragemints__header">EncourageMints 🍬</h1>
         <div className="encouragemints__container">
           {encourageMints.map((encourageMint, index) => (
-            <div key={index} className="encouragemints__encouragemint">
+            <div key={index} className="encouragemints__message">
               <h2 className="encouragemints__author">
                 {encourageMint.author_name}
               </h2>
-              <p className="encouragemints__title">{encourageMint.content}</p>
+              <p className="encouragemints__content">{encourageMint.content}</p>
             </div>
           ))}
         </div>

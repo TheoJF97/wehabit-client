@@ -15,6 +15,7 @@
   @include desktop {
     @include desktop-width;
   }
+
   &__card {
     @include card;
     margin: 1rem;
@@ -22,32 +23,6 @@
 
     @include tablet {
       width: 50%;
-    }
-  }
-
-  &__logo {
-    width: 18.4375rem;
-    border-radius: .3125rem;
-    margin: 1rem;
-
-    @include tablet {
-      width: 21.875rem;
-    }
-  }
-
-  &__title {
-    margin-bottom: 0;
-  }
-
-  &__redirect {
-    text-decoration: none;
-    color: $wehabit-black;
-
-    &-message {
-      &:hover {
-        color: $green-sheen;
-        text-decoration: underline;
-      }
     }
   }
 
@@ -63,6 +38,8 @@
     justify-content: space-between;
     gap: 1rem;
     align-items: center;
+    margin-bottom: 0;
+
 
     &-label {
       width: 5rem;
@@ -94,9 +71,5 @@
       display: flex;
       justify-content: center;
     }
-  }
-
-  &__error {
-    color: red;
   }
 }

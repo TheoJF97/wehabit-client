@@ -4,12 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/WeHabit-full-logo.png";
 
 export default function LoginPage({ setCurrentUserId }) {
-  // Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
   const loginUrl = `${serverUrl}/login`;
 
-  // Declare state variables
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoginError, setIsLoginError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,22 +15,18 @@ export default function LoginPage({ setCurrentUserId }) {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Grab the form's values
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    // Here send a POST request to loginUrl with username and password data
     axios
       .post(loginUrl, {
         email,
         password,
       })
-
       .then((response) => {
         const token = response.data.token;
         sessionStorage.authToken = token;
 
-        // Fetch user ID after successful login
         axios
           .get(`${serverUrl}/profile`, {
             headers: {

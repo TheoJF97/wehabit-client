@@ -27,12 +27,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: .0625rem solid #000;
+    border: 0.0625rem solid #000;
     background-color: $white;
     padding: 0rem 1rem 1rem 1rem;
     box-sizing: border-box;
-    border-radius: .3125rem;
-    box-shadow: .625rem .3125rem .3125rem $wehabit-dark-green;
+    border-radius: 0.3125rem;
+    box-shadow: 0.625rem 0.3125rem 0.3125rem $wehabit-dark-green;
 
     @include tablet {
       flex-direction: column;
@@ -40,7 +40,7 @@
     }
   }
 
-  &__encouragemint {
+  &__message {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -48,14 +48,14 @@
 
     @include tablet {
       width: 100%;
-      border-radius: .3125rem;
+      border-radius: 0.3125rem;
       padding-right: 1.5rem;
     }
   }
 
   &__author {
     margin: 0;
-    font-size: .9375rem;
+    font-size: 0.9375rem;
     padding: 1rem 0;
 
     @include tablet {
@@ -63,7 +63,7 @@
     }
   }
 
-  &__title {
+  &__content {
     width: 100%;
     margin: 0;
     display: flex;

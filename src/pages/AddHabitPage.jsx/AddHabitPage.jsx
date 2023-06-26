@@ -1,4 +1,3 @@
-// Import components
 import AddHabit from "../../components/AddHabit/AddHabit";
 import Header from "../../components/Header/Header";
 

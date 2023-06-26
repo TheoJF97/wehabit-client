@@ -1,24 +1,17 @@
-//Import tools
 import axios from "axios";
 import { useEffect, useState } from "react";
-
-// Note: dates is an array of strings representing range of dates from startDate to endDate
 import { startDate, endDate, dates } from "../../utils/utils";
 import moment from "moment";
 
 export default function Habit({ habit, isMyHabits }) {
-  //State variables
   const [completions, setCompletions] = useState([]);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  //Deconstruct prop: habit (id, title, user_id):
   const { id, title } = habit;
 
-  //Import server url from .env
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  //Axios call to get a user's habits completions for a date range
   useEffect(() => {
     axios
       .get(`${serverUrl}/completions/${id}/${startDate}/${endDate}`)

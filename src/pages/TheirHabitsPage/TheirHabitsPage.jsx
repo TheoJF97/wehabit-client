@@ -10,10 +10,6 @@ export default function TheirHabitsPage({ currentUserId, users }) {
     return user.id === currentUserId;
   });
 
-  // console.log(currentUserId);
-  // console.log(users);
-  console.log(currentUser);
-
   return (
     <>
       <Header currentUser={currentUser} />

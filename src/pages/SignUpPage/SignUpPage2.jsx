@@ -8,13 +8,11 @@ export default function SignUpPage2() {
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
   const signupUrl = `${serverUrl}/signup`;
 
-  // State Variables
   const [signUpError, setSignUpError] = useState("");
 
   const handleSignup = (event) => {
     event.preventDefault();
 
-    // Grab form's values
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
