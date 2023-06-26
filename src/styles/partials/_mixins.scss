@@ -62,3 +62,19 @@
   color: $wehabit-dark-green;
   font-weight: 700;
 }
+
+@mixin input {
+  min-width: 160px;
+  flex-grow: 1;
+  font-family: "Avenir Next";
+
+  &::placeholder {
+    color: $green-sheen;
+    padding: 0;
+    font-family: "Avenir Next";
+  }
+
+  &:focus {
+    border: 0.125rem solid $wehabit-green;
+  }
+}

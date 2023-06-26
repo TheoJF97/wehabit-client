@@ -17,7 +17,7 @@
   }
   &__card {
     @include card;
-    margin: 1rem;
+    margin: 16px;
     width: 92%;
 
     @include tablet {
@@ -69,9 +69,9 @@
     &-label {
       width: 80px;
     }
+
     &-input {
-      min-width: 160px;
-      flex-grow: 1;
+      @include input;
     }
   }
 
