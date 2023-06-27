@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 // import SASS
 import "./App.scss";
 
-// import Pages
+// import components
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import AddHabitPage from "./pages/AddHabitPage.jsx/AddHabitPage";
 import TheirHabitsPage from "./pages/TheirHabitsPage/TheirHabitsPage";
@@ -15,7 +15,11 @@ import SignUpPage2 from "./pages/SignUpPage/SignUpPage2";
 import TheirHabitsProfilePage from "./pages/TheirHabitsProfilePage/TheirHabitsProfilePage";
 
 export default function App() {
-  const [currentUserId, setCurrentUserId] = useState(null);
+  const [currentUserId, setCurrentUserId] = useState(() => {
+    // Retrieve the currentUserId from sessionStorage on initial render
+    const storedUserId = sessionStorage.getItem("currentUserId");
+    return storedUserId ? parseInt(storedUserId) : null;
+  });
   const [users, setUsers] = useState([]);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,6 +38,11 @@ export default function App() {
         setHasError(true);
       });
   }, [serverUrl]);
+
+  useEffect(() => {
+    // Update the currentUserId in sessionStorage whenever it changes
+    sessionStorage.setItem("currentUserId", currentUserId);
+  }, [currentUserId]);
 
   if (isLoading) {
     return <span>Loading.....</span>;

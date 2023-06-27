@@ -4,6 +4,9 @@ import logo from "../../assets/logo/wehabit-logo.png";
 export default function Header({ currentUser }) {
   const id = currentUser.id;
 
+  console.log(currentUser);
+  console.log(id);
+
   return (
     <>
       <header className="header">
