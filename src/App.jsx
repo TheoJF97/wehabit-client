@@ -16,7 +16,6 @@ import TheirHabitsProfilePage from "./pages/TheirHabitsProfilePage/TheirHabitsPr
 
 export default function App() {
   const [currentUserId, setCurrentUserId] = useState(() => {
-    // Retrieve the currentUserId from sessionStorage on initial render
     const storedUserId = sessionStorage.getItem("currentUserId");
     return storedUserId ? parseInt(storedUserId) : null;
   });
