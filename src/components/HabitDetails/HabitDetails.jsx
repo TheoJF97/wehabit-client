@@ -3,35 +3,44 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function HabitDetails() {
-  const idObj = useParams();
+  const [habit, setHabit] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
-  const [habit, setHabit] = useState(null);
+  let { id } = useParams();
 
-  const id = idObj.id;
+  console.log(id);
 
   useEffect(() => {
     axios
       .get(`${serverUrl}/habits/${id}`)
-      .then((event) => {
-        setHabit(event.data[0]);
+      .then((response) => {
+        setHabit(response.data[0]);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setHasError(true);
       });
   }, [id, serverUrl]);
 
-  // Deconstruct Habit information
-  // const { title, description } = habit;
-
-  // console.log(habit);
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+  if (hasError) {
+    return <h1>Information not found</h1>;
+  }
 
   return (
     <>
       <section className="habit-details">
         <div className="habit-details__card">
-          <h1 className="habit-details__header">{habit.title}</h1>
+          <h1 className="habit-details__header">
+            test
+            {habit.title}
+          </h1>
           <form className="habit-details__form">
             <div className="habit-details__title">
               <label htmlFor="title" className="habit-details__title-label">
@@ -60,7 +69,10 @@ export default function HabitDetails() {
                 placeholder="Ex: I want to write the highlights/lowlights of my day every night after brushing my teeth, before bed. "
               ></textarea>
             </div>
-            <span>{habit.description}</span>
+            <span>
+              test
+              {habit.description}
+            </span>
 
             <div className="habit-details__button-container">
               <button className="habit-details__button">Submit</button>
