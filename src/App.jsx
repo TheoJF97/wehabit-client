@@ -8,11 +8,12 @@ import "./App.scss";
 
 // import components
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import AddHabitPage from "./pages/AddHabitPage.jsx/AddHabitPage";
+import AddHabitPage from "./pages/AddHabitPage/AddHabitPage";
 import TheirHabitsPage from "./pages/TheirHabitsPage/TheirHabitsPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage2 from "./pages/SignUpPage/SignUpPage2";
 import TheirHabitsProfilePage from "./pages/TheirHabitsProfilePage/TheirHabitsProfilePage";
+import HabitDetailsPage from "./pages/HabitDetailsPage/HabitDetailsPage";
 
 export default function App() {
   const [currentUserId, setCurrentUserId] = useState(() => {
@@ -62,12 +63,20 @@ export default function App() {
           />
           <Route path="/:id" element={<ProfilePage />} />
           <Route
+            path="/habit/:id"
+            element={
+              <HabitDetailsPage currentUserId={currentUserId} users={users} />
+            }
+            currentUserId={currentUserId}
+          />
+          <Route
             path="/addhabit"
             element={
               <AddHabitPage currentUserId={currentUserId} users={users} />
             }
             currentUserId={currentUserId}
           />
+
           <Route
             path="/theirhabits"
             element={

@@ -1,0 +1,74 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.habit-details {
+  color: black;
+  background-color: $wehabit-green;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include desktop {
+    @include desktop-width;
+  }
+
+  &__card {
+    @include card;
+    margin: 1rem;
+    width: 92%;
+
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0rem 0rem 0rem 0rem;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0;
+
+    &-label {
+      width: 5rem;
+    }
+
+    &-input {
+      @include input;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+
+    &-label {
+      width: 5rem;
+    }
+
+    &-input {
+      @include input;
+    }
+  }
+
+  &__button {
+    @include button;
+    color: $white;
+
+    &-container {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
