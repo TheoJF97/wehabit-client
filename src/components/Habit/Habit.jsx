@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { startDate, endDate, dates } from "../../utils/utils";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 export default function Habit({ habit, isMyHabits }) {
   const [completions, setCompletions] = useState([]);
@@ -36,7 +37,11 @@ export default function Habit({ habit, isMyHabits }) {
   return (
     <>
       <div key={id} className="habit">
-        <h2 className="habit__title">{title}</h2>
+        {/* To create link to Habit Details Page */}
+        <Link to={`/habit/${id}`} className="habit__link">
+          <h2 className="habit__title">{title}</h2>
+        </Link>
+
         {dates.map((date, index) => {
           // c represents a completion of completions
           const completion = completions.find(

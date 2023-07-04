@@ -9,18 +9,24 @@
   align-items: center;
   width: 100%;
   margin: 1rem 0;
-  gap: .3125rem;
+  gap: 0.3125rem;
 
-  &__title {
-    width: 17%;
-    margin: 0rem 1rem 0rem 1rem;
+  &__link {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 17%;
+    margin: 0rem 1rem 0rem 1rem;
+    color: black;
 
     @include tablet {
       justify-content: center;
+    }
+
+    :hover {
+      color: $wehabit-dark-green;
     }
   }
 
@@ -28,7 +34,7 @@
     width: 10%;
     height: 3rem;
     margin: 0;
-    border-radius: .3125rem;
+    border-radius: 0.3125rem;
     accent-color: $wehabit-green;
     cursor: pointer;
 
