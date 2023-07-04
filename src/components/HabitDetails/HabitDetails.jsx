@@ -37,47 +37,17 @@ export default function HabitDetails() {
     <>
       <section className="habit-details">
         <div className="habit-details__card">
-          <h1 className="habit-details__header">
-            test
-            {habit.title}
-          </h1>
-          <form className="habit-details__form">
-            <div className="habit-details__title">
-              <label htmlFor="title" className="habit-details__title-label">
-                Title:
-              </label>
-              <input
-                type="text"
-                name="title"
-                className="habit-details__title-input"
-                placeholder="Ex: Journaling"
-              />
-            </div>
+          <h1 className="habit-details__header">{habit.title}</h1>
+          <div className="habit-details__description">
+            <h2 className="habit-details__description-header">Description</h2>
+          </div>
+          <p className="habit-details__description-content">
+            {habit.description}
+          </p>
 
-            <div className="habit-details__description">
-              <label
-                htmlFor="description"
-                className="habit-details__description-label"
-              >
-                Description:
-              </label>
-              <textarea
-                name="description"
-                cols="30"
-                rows="10"
-                className="habit-details__description-input"
-                placeholder="Ex: I want to write the highlights/lowlights of my day every night after brushing my teeth, before bed. "
-              ></textarea>
-            </div>
-            <span>
-              test
-              {habit.description}
-            </span>
-
-            <div className="habit-details__button-container">
-              <button className="habit-details__button">Submit</button>
-            </div>
-          </form>
+          <div className="habit-details__button-container">
+            <button className="habit-details__button">◀ Back</button>
+          </div>
         </div>
       </section>
     </>
