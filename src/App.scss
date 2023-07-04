@@ -8,6 +8,7 @@
 @use "./pages/SignUpPage/SignUpPage.scss" as *;
 @use "./components/TheirHabits/TheirHabits.scss" as *;
 @use "./pages/LoginPage/LoginPage.scss" as *;
+@use "./components/HabitDetails/HabitDetails.scss" as *;
 
 // Link Partials SASS Styling
 @use "./styles/partials/fonts" as *;
@@ -30,7 +31,7 @@ h1 {
 }
 
 h2 {
-  font-size: .8125rem;
+  font-size: 0.8125rem;
 
   @include tablet {
     font-size: 1.25rem;
@@ -38,7 +39,7 @@ h2 {
 }
 
 h3 {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
 
   @include tablet {
     font-size: 1.0625rem;
@@ -46,7 +47,7 @@ h3 {
 }
 
 p {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
 
   @include tablet {
     font-size: 1rem;
@@ -54,9 +55,9 @@ p {
 }
 
 span {
-  font-size: .8125rem;
+  font-size: 0.8125rem;
 
   @include tablet {
-    font-size: .9375rem;
+    font-size: 0.9375rem;
   }
 }
