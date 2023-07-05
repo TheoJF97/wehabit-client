@@ -36,7 +36,7 @@ export default function LoginPage({ setCurrentUserId }) {
           .then((response) => {
             const userId = response.data.userId;
             setCurrentUserId(userId);
-            navigate(`/${userId}`);
+            navigate(`/user/${userId}`);
           });
       })
       .catch(() => {

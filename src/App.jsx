@@ -61,7 +61,7 @@ export default function App() {
             path="/login"
             element={<LoginPage setCurrentUserId={setCurrentUserId} />}
           />
-          <Route path="/:id" element={<ProfilePage />} />
+          <Route path="/user/:id" element={<ProfilePage />} />
           <Route
             path="/habit/:id"
             element={

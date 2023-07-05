@@ -39,6 +39,10 @@
     }
   }
 
+  &__link {
+    text-decoration: none;
+  }
+
   &__button {
     @include button;
     color: $white;

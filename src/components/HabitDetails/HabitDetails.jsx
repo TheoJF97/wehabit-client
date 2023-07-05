@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-export default function HabitDetails() {
+export default function HabitDetails({ currentUserId }) {
   const [habit, setHabit] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -44,10 +44,11 @@ export default function HabitDetails() {
           <p className="habit-details__description-content">
             {habit.description}
           </p>
-
-          <div className="habit-details__button-container">
-            <button className="habit-details__button">◀ Back</button>
-          </div>
+          <Link to={`/user/${currentUserId}`} className="habit-details__link">
+            <div className="habit-details__button-container">
+              <button className="habit-details__button">◀ Back</button>
+            </div>
+          </Link>
         </div>
       </section>
     </>

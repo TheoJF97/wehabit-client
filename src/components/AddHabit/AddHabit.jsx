@@ -18,7 +18,7 @@ export default function AddHabit({ currentUserId }) {
     axios
       .post(`${serverUrl}/habits`, newHabit)
       .then(() => {
-        navigate(`/${currentUserId}`);
+        navigate(`/user/${currentUserId}`);
       })
       .catch((err) => {
         console.log(err);

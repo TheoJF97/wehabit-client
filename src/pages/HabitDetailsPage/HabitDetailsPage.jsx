@@ -9,7 +9,7 @@ export default function HabitDetailsPage({ currentUserId, users }) {
   return (
     <>
       <Header currentUser={currentUser} />
-      <HabitDetails />
+      <HabitDetails currentUserId={currentUserId} />
     </>
   );
 }
