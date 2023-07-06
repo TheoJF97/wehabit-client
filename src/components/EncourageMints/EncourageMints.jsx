@@ -20,7 +20,7 @@ export default function EncourageMints() {
         console.log(error);
         setHasError(true);
       });
-  }, [id, serverUrl]);
+  }, [id, serverUrl, encourageMints]);
 
   if (!encourageMints) {
     return <span>Loading.....</span>;
