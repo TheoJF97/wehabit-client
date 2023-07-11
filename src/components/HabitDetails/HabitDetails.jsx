@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import trash from "../../assets/icons/trash-solid.svg";
 
 export default function HabitDetails({ currentUserId }) {
   const [habit, setHabit] = useState(null);
@@ -10,8 +11,6 @@ export default function HabitDetails({ currentUserId }) {
   const { REACT_APP_SERVER_URL: serverUrl } = process.env;
 
   let { id } = useParams();
-
-  console.log(id);
 
   useEffect(() => {
     axios
@@ -29,6 +28,7 @@ export default function HabitDetails({ currentUserId }) {
   if (isLoading) {
     return <span>Loading...</span>;
   }
+
   if (hasError) {
     return <h1>Information not found</h1>;
   }
@@ -37,7 +37,16 @@ export default function HabitDetails({ currentUserId }) {
     <>
       <section className="habit-details">
         <div className="habit-details__card">
-          <h1 className="habit-details__header">{habit.title}</h1>
+          <div className="habit-details__header">
+            <h1 className="habit-details__title">{habit.title}</h1>
+            {/* <button className="habit-details__delete"> */}
+              <img
+                src={trash}
+                alt="garbage can"
+                className="habit-details__trash"
+              />
+            {/* </button> */}
+          </div>
           <div className="habit-details__description">
             <h2 className="habit-details__description-header">Description</h2>
           </div>

@@ -26,6 +26,23 @@
     }
   }
 
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__delete {
+    background-color: transparent;
+    border: none;
+  }
+
+  &__trash {
+    width: 20px;
+    :hover {
+      fill: red;
+    }
+  }
+
   &__description {
     display: flex;
     flex-direction: column;
