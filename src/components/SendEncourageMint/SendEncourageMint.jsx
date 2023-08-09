@@ -30,7 +30,7 @@ export default function SendEncourageMint({ currentUserId }) {
   return (
     <>
       <form className="send-encouragemint" onSubmit={onSubmitHandler}>
-        <h1 className="send-encouragemint__header">Send Encouragemint 🍬</h1>
+        <h1 className="send-encouragemint__header">Send EncourageMint 🍬</h1>
 
         <div className="send-encouragemint__content">          
           <textarea
